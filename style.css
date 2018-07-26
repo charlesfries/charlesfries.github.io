@@ -1,0 +1,27 @@
+.topper {
+  height: 100vh;
+  padding-top: 40vh;
+  background: #0072ff;
+  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+}
+.bottomer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.fancy {
+  font-family: "HelveticaNeue-Light";
+}
+.chevron {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.featurette-divider {
+  margin: 4rem 0;
+}
+
+section {
+  margin-bottom: 4rem;
+}

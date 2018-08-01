@@ -8,4 +8,7 @@ $(document).ready(function() {
       window.location.hash = target;
     });
   });
+
+  $('#title').hide();
+  $('#title').fadeIn(1000);
 });

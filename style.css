@@ -4,6 +4,11 @@
   background: #0072ff;
   background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
 }
+.header {
+  height: 5rem;
+  background: #0072ff;
+  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+}
 .bottomer {
   padding-top: 4rem;
   padding-bottom: 4rem;

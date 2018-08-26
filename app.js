@@ -1,3 +1,4 @@
+$('#title').hide();
 $(document).ready(function() {
   $('a[href^="#"]').click(function(e) {
     e.preventDefault();
@@ -9,6 +10,5 @@ $(document).ready(function() {
     });
   });
 
-  $('#title').hide();
   $('#title').fadeIn(1000);
 });

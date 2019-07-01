@@ -1,0 +1,30 @@
+section {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.hook {
+	h3 {
+		font-size: 25px;
+		font-weight: 300;
+		color: rgb(48, 47, 47);
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-style: normal;
+		margin-top: 15px;
+	}
+}
+
+.me {
+	text-align: center;
+	img {
+		width: 100px;
+		height: 100px;
+	}
+}
+
+#particles canvas {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}

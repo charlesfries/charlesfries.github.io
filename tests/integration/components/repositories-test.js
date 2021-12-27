@@ -7,20 +7,8 @@ module('Integration | Component | repositories', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<Repositories />`);
+    await render(hbs`<Repositories @repositories={{(array)}} />`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Repositories>
-        template block text
-      </Repositories>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });

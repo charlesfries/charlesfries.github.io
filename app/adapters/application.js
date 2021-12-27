@@ -8,7 +8,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     Accept: 'application/json',
   };
 
-  pathForType(type) {
+  pathForType() {
     return 'repos';
   }
 }

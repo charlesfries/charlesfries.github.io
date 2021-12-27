@@ -1,0 +1,7 @@
+<div class='row row-cols-3 g-4 mb-5'>
+  {{#each @repositories as |repository|}}
+    <div class='col'>
+      <Repository @repository={{repository}} />
+    </div>
+  {{/each}}
+</div>

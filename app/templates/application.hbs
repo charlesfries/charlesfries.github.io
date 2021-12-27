@@ -1,0 +1,35 @@
+<div class='container py-5'>
+  <header class='d-flex justify-content between'>
+    <div>
+      <h1 class='special'>{{t 'name'}}</h1>
+
+      <div class='row mb-4'>
+        <div class='col-6'>
+          <p>{{t 'summary'}}</p>
+
+          <div class='d-flex gap-2'>
+            <a href='https://github.com/charlesfries'>
+              <FaIcon @icon='github' @prefix='fab' /></a>
+            <a href='https://www.linkedin.com/in/charlesfries'>
+              <FaIcon @icon='linkedin' @prefix='fab' /></a>
+            <a href='https://twitter.com/charlesfries'>
+              <FaIcon @icon='twitter' @prefix='fab' /></a>
+            <a href='https://www.instagram.com/charlesfries'>
+              <FaIcon @icon='instagram' @prefix='fab' /></a>
+            <a href='mailto:charliefries@icloud.com'>
+              <FaIcon @icon='envelope' /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img
+      alt={{t 'name'}}
+      width='128'
+      height='128'
+      class='rounded-circle'
+      src='https://avatars.githubusercontent.com/u/2275005?v=4'
+    />
+  </header>
+
+  {{outlet}}
+</div>

@@ -1,0 +1,18 @@
+<a href={{@repository.html_url}}>
+  {{@repository.name}}</a>
+⭐
+{{@repository.stargazers_count}}
+{{#if @repository.fork}}
+  🍴
+{{/if}}
+<br />
+{{#if @repository.language}}
+  <strong class='text-success'>
+    {{@repository.language}}
+  </strong>
+{{/if}}
+{{#if @repository.description}}
+  {{@repository.description}}
+{{else}}
+  <i>No Description</i>
+{{/if}}

@@ -1,23 +1,55 @@
 <div class='d-flex justify-content-between'>
   <h3>Projects</h3>
   <div>
-    <div class='btn-group btn-group-sm' role='group'>
-      <LinkTo
-        @query={{hash type=undefined}}
-        class='btn btn-outline-secondary'
-        role='button'
-      >All</LinkTo>
-      <LinkTo
-        @query={{hash type='original'}}
-        class='btn btn-outline-secondary'
-        role='button'
-      >Originals</LinkTo>
-      <LinkTo
-        @query={{hash type='fork'}}
-        class='btn btn-outline-secondary'
-        role='button'
-      >Forks</LinkTo>
-    </div>
+    <Bs::Toolbar @size='sm' as |toolbar|>
+      <toolbar.group class='me-2' as |group|>
+        <group.button {{dropdown}}>{{this.sort}}</group.button>
+        <Bs::Dropdown>
+          <LinkTo @query={{hash sort='created'}} class='dropdown-item'>
+            Created Date
+          </LinkTo>
+          <LinkTo @query={{hash sort='updated'}} class='dropdown-item'>
+            Updated Date
+          </LinkTo>
+          <LinkTo @query={{hash sort='stars'}} class='dropdown-item'>
+            Stars
+          </LinkTo>
+        </Bs::Dropdown>
+      </toolbar.group>
+      <toolbar.group class='me-2'>
+        <LinkTo
+          @query={{hash direction='asc'}}
+          class='btn btn-outline-secondary'
+          role='button'
+        >
+          <FaIcon @icon='sort-amount-up' />
+        </LinkTo>
+        <LinkTo
+          @query={{hash direction='desc'}}
+          class='btn btn-outline-secondary'
+          role='button'
+        >
+          <FaIcon @icon='sort-amount-down' />
+        </LinkTo>
+      </toolbar.group>
+      <toolbar.group>
+        <LinkTo
+          @query={{hash filter=undefined}}
+          class='btn btn-outline-secondary'
+          role='button'
+        >All</LinkTo>
+        <LinkTo
+          @query={{hash filter='original'}}
+          class='btn btn-outline-secondary'
+          role='button'
+        >Originals</LinkTo>
+        <LinkTo
+          @query={{hash filter='fork'}}
+          class='btn btn-outline-secondary'
+          role='button'
+        >Forks</LinkTo>
+      </toolbar.group>
+    </Bs::Toolbar>
   </div>
 </div>
 

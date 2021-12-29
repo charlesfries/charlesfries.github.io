@@ -24,14 +24,15 @@ export default class IndexRoute extends Route {
     filter: { refreshModel: false },
   };
 
-  // @ts-ignore
-  async model({ sort, direction, filter }: Params): Promise<ArrayProxy<RepositoryModel>> {
+  async model({
+    sort,
+    direction,
+  }: Params): Promise<ArrayProxy<RepositoryModel>> {
     await sleep(DELAY);
 
     return this.store.query('repository', {
       sort,
       direction,
-      // filter,
     });
   }
 }

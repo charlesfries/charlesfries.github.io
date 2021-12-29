@@ -20,10 +20,7 @@ module.exports = {
   env: {
     browser: true,
   },
-  rules: {
-    '@typescript-eslint/no-empty-function': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-  },
+  rules: {},
   overrides: [
     // node files
     {
@@ -51,7 +48,6 @@ module.exports = {
         // this can be removed once the following is fixed
         // https://github.com/mysticatea/eslint-plugin-node/issues/77
         'node/no-unpublished-require': 'off',
-        '@typescript-eslint/no-var-requires': 'off',
       },
     },
     {

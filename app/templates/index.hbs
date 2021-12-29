@@ -1,7 +1,12 @@
-<div class='d-flex justify-content-between'>
-  <h3>Projects</h3>
+<div class='d-flex justify-content-between mb-3'>
+  <h3 class='mb-0'>Projects</h3>
   <div>
     <Bs::Toolbar @size='sm' as |toolbar|>
+      <toolbar.group class='me-2' as |group|>
+        <group.button @onClick={{this.reload}}>
+          <FaIcon @icon="redo" />
+        </group.button>
+      </toolbar.group>
       <toolbar.group class='me-2' as |group|>
         <group.button {{dropdown}}>{{this.sort}}</group.button>
         <Bs::Dropdown>
@@ -18,18 +23,18 @@
       </toolbar.group>
       <toolbar.group class='me-2'>
         <LinkTo
-          @query={{hash direction='asc'}}
-          class='btn btn-outline-secondary'
-          role='button'
-        >
-          <FaIcon @icon='sort-amount-up' />
-        </LinkTo>
-        <LinkTo
           @query={{hash direction='desc'}}
           class='btn btn-outline-secondary'
           role='button'
         >
           <FaIcon @icon='sort-amount-down' />
+        </LinkTo>
+        <LinkTo
+          @query={{hash direction='asc'}}
+          class='btn btn-outline-secondary'
+          role='button'
+        >
+          <FaIcon @icon='sort-amount-up' />
         </LinkTo>
       </toolbar.group>
       <toolbar.group>

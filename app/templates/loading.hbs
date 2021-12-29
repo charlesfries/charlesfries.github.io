@@ -1,52 +1,62 @@
-<div class='d-flex justify-content-between'>
-  <h3>Projects</h3>
+<div class='d-flex justify-content-between mb-3'>
+  <h3 class='mb-0'>Projects</h3>
   <div>
-    <div class='btn-group btn-group-sm' role='group'>
-      <a
-        href='#'
-        tabindex='-1'
-        class='btn btn-outline-secondary disabled placeholder'
-      >All</a>
-      <a
-        href='#'
-        tabindex='-1'
-        class='btn btn-outline-secondary disabled placeholder'
-      >Originals</a>
-      <a
-        href='#'
-        tabindex='-1'
-        class='btn btn-outline-secondary disabled placeholder'
-      >Forks</a>
-    </div>
+    <Bs::Toolbar @size='sm' as |toolbar|>
+      <toolbar.group class='me-2' as |group|>
+        <group.button {{dropdown}}>{{this.sort}}</group.button>
+        <Bs::Dropdown>
+          <LinkTo @query={{hash sort='created'}} class='dropdown-item'>
+            Created Date
+          </LinkTo>
+          <LinkTo @query={{hash sort='updated'}} class='dropdown-item'>
+            Updated Date
+          </LinkTo>
+          <LinkTo @query={{hash sort='stars'}} class='dropdown-item'>
+            Stars
+          </LinkTo>
+        </Bs::Dropdown>
+      </toolbar.group>
+      <toolbar.group class='me-2'>
+        <a
+          href='#'
+          tabindex='-1'
+          class='btn btn-outline-secondary disabled placeholder'
+        ><FaIcon @icon='sort-amount-down' /></a>
+        <a
+          href='#'
+          tabindex='-1'
+          class='btn btn-outline-secondary disabled placeholder'
+        ><FaIcon @icon='sort-amount-up' /></a>
+      </toolbar.group>
+      <toolbar.group>
+        <a
+          href='#'
+          tabindex='-1'
+          class='btn btn-outline-secondary disabled placeholder'
+        >All</a>
+        <a
+          href='#'
+          tabindex='-1'
+          class='btn btn-outline-secondary disabled placeholder'
+        >Originals</a>
+        <a
+          href='#'
+          tabindex='-1'
+          class='btn btn-outline-secondary disabled placeholder'
+        >Forks</a>
+      </toolbar.group>
+    </Bs::Toolbar>
   </div>
 </div>
 
-<div class='row row-cols-3'>
-  <div class='col'>
-    <p class='card-text placeholder-glow'>
-      <span class='placeholder col-7'></span>
-      <span class='placeholder col-4'></span>
-      <span class='placeholder col-4'></span>
-      <span class='placeholder col-6'></span>
-      <span class='placeholder col-8'></span>
-    </p>
-  </div>
-  <div class='col'>
-    <p class='card-text placeholder-glow'>
-      <span class='placeholder col-7'></span>
-      <span class='placeholder col-4'></span>
-      <span class='placeholder col-4'></span>
-      <span class='placeholder col-6'></span>
-      <span class='placeholder col-8'></span>
-    </p>
-  </div>
-  <div class='col'>
-    <p class='card-text placeholder-glow'>
-      <span class='placeholder col-7'></span>
-      <span class='placeholder col-4'></span>
-      <span class='placeholder col-4'></span>
-      <span class='placeholder col-6'></span>
-      <span class='placeholder col-8'></span>
-    </p>
-  </div>
+<div class='row row-cols-3 g-4 mb-5'>
+  <Placeholder />
+  <Placeholder />
+  <Placeholder />
+  <Placeholder />
+  <Placeholder />
+  <Placeholder />
+  <Placeholder />
+  <Placeholder />
+  <Placeholder />
 </div>

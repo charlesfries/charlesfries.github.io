@@ -9,6 +9,6 @@ module('Integration | Component | placeholder', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<Placeholder />`);
 
-    assert.dom(this.element).hasText('');
+    assert.dom().hasText('');
   });
 });

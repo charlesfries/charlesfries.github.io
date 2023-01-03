@@ -9,6 +9,6 @@ module('Integration | Component | repository', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<Repository @repository={{(hash)}}  />`);
 
-    assert.dom(this.element).hasText('⭐ No Description');
+    assert.dom().hasText('⭐ No Description');
   });
 });

@@ -1,38 +1,36 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 import sleep from 'charlesfries/utils/sleep';
-
-import type Store from '@ember-data/store';
-
-import type ArrayProxy from '@ember/array/proxy';
-import type RepositoryModel from 'charlesfries/models/repository';
 
 interface Params {
   sort?: string;
   direction?: string;
-  filter?: string;
+  type?: string;
 }
 
 const DELAY = 600;
 
 export default class IndexRoute extends Route {
-  @service declare store: Store;
-
   queryParams = {
     sort: { refreshModel: true },
     direction: { refreshModel: true },
-    filter: { refreshModel: false },
+    type: { refreshModel: false },
   };
 
-  async model({
-    sort,
-    direction,
-  }: Params): Promise<ArrayProxy<RepositoryModel>> {
+  async model({ sort, direction }: Params): Promise<unknown[]> {
     await sleep(DELAY);
 
-    return this.store.query('repository', {
-      sort,
-      direction,
-    });
+    const url = new URL('https://api.github.com/users/charlesfries/repos');
+
+    if (sort) {
+      url.searchParams.append('sort', sort);
+    }
+    if (direction) {
+      url.searchParams.append('direction', direction);
+    }
+
+    const response = await fetch(url.href);
+    const repositories = await response.json();
+
+    return repositories;
   }
 }

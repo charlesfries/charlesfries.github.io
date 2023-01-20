@@ -1,6 +1,6 @@
 'use strict';
 
-const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-line
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
@@ -10,8 +10,6 @@ module.exports = function (defaults) {
       onlyIncluded: true,
     },
   });
-
-  app.import('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.

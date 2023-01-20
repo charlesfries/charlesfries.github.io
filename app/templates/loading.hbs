@@ -3,7 +3,12 @@
   <div>
     <Bs::Toolbar @size='sm' as |toolbar|>
       <toolbar.group class='me-2' as |group|>
-        <group.button {{dropdown}}>{{this.sort}}</group.button>
+        <group.button>
+          <FaIcon @icon='redo' />
+        </group.button>
+      </toolbar.group>
+      <toolbar.group class='me-2' as |group|>
+        <group.button {{dropdown}}>updated</group.button>
         <Bs::Dropdown>
           <LinkTo @query={{hash sort='created'}} class='dropdown-item'>
             Created Date
@@ -38,7 +43,7 @@
           href='#'
           tabindex='-1'
           class='btn btn-outline-secondary disabled placeholder'
-        >Originals</a>
+        >Sources</a>
         <a
           href='#'
           tabindex='-1'

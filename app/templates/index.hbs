@@ -4,7 +4,7 @@
     <Bs::Toolbar @size='sm' as |toolbar|>
       <toolbar.group class='me-2' as |group|>
         <group.button @onClick={{this.reload}}>
-          <FaIcon @icon="redo" />
+          <FaIcon @icon='redo' />
         </group.button>
       </toolbar.group>
       <toolbar.group class='me-2' as |group|>
@@ -25,31 +25,29 @@
         <LinkTo
           @query={{hash direction='desc'}}
           class='btn btn-outline-secondary'
-          role='button'
         >
           <FaIcon @icon='sort-amount-down' />
         </LinkTo>
         <LinkTo
           @query={{hash direction='asc'}}
           class='btn btn-outline-secondary'
-          role='button'
         >
           <FaIcon @icon='sort-amount-up' />
         </LinkTo>
       </toolbar.group>
       <toolbar.group>
         <LinkTo
-          @query={{hash filter=undefined}}
+          @query={{hash type=undefined}}
           class='btn btn-outline-secondary'
           role='button'
         >All</LinkTo>
         <LinkTo
-          @query={{hash filter='original'}}
+          @query={{hash type='sources'}}
           class='btn btn-outline-secondary'
           role='button'
-        >Originals</LinkTo>
+        >Sources</LinkTo>
         <LinkTo
-          @query={{hash filter='fork'}}
+          @query={{hash type='forks'}}
           class='btn btn-outline-secondary'
           role='button'
         >Forks</LinkTo>

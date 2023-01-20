@@ -2,6 +2,7 @@ import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
 import config from 'charlesfries/config/environment';
+import 'bootstrap';
 
 export default class App extends Application {
   modulePrefix = config.modulePrefix;

@@ -1,5 +1,7 @@
 # charlesfries
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/646cef0f-48b3-4857-8c27-8b16c22c56d8/deploy-status)](https://app.netlify.com/sites/heuristic-fermat-b27eca/deploys)
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 

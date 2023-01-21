@@ -2,17 +2,7 @@
   <header class='row justify-content-between mb-5'>
     <div class='col-lg-6 col-md-7 col-sm-8 col-10'>
       <h1 class='special mb-3'>{{t 'name'}}</h1>
-      <select
-        class='form-select w-auto mb-3'
-        aria-label={{t 'locale'}}
-        {{on 'change' this.setLocale}}
-      >
-        <option value='en-us'>English</option>
-        <option value='zh-cn'>中文</option>
-        <option value='es-es'>Español</option>
-        <option value='fr-fr'>Français</option>
-        <option value='it-it'>Italiano</option>
-      </select>
+      <Locale />
       <p>{{t 'summary' name=(t 'name') htmlSafe=true}}</p>
       <Contact />
       <Skills />

@@ -1,16 +1,16 @@
 name: Charles Fries
 summary: Je m'appelle {name}. Je suis <strong>Ingénieur logiciel principal</strong> chez <strong>Trusted American Insurance</strong>. Auparavant, j'étais <strong>développeur d'applications Web</strong> chez <strong>McMillan Study Guides</strong>. J'adore travailler sur OSS et penser à l'expérience des développeurs. Vous pouvez me trouver sur GitHub, LinkedIn, Twitter, Instagram ou me joindre par e-mail.
 projects: Projets
-locale: Locale
+locale: Lieu
 sort:
-  created: Created Date
-  updated: Updated Date
-  name: Name
+  created: Date de création
+  updated: Date de mise à jour
+  name: Nom
 type:
-  all: All
+  all: Toute
   sources: Sources
-  forks: Forks
+  forks: Fourchettes
 noDescription: Pas de description
 updated: Actualisé
-more: More on GitHub
+more: En savoir plus sur GitHub
 error: Impossible de récupérer les dépôts GitHub!

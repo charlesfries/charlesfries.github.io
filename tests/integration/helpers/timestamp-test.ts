@@ -12,6 +12,6 @@ module('Integration | Helper | timestamp', function (hooks) {
 
     await render(hbs`{{timestamp this.inputValue}}`);
 
-    assert.dom().hasText('1234');
+    assert.dom().hasText('December 1233');
   });
 });

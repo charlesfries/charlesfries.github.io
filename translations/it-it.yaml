@@ -3,14 +3,14 @@ summary: Mi chiamo {name}. Sono il <strong>Lead Software Engineer</strong> press
 projects: Progetti
 locale: Locale
 sort:
-  created: Created Date
-  updated: Updated Date
-  name: Name
+  created: Data di Creazione
+  updated: Data Aggiornata
+  name: Nome
 type:
-  all: All
-  sources: Sources
-  forks: Forks
-noDescription: No Description
-updated: Updated
-more: More on GitHub
-error: Couldn't fetch GitHub repositories!
+  all: Tutte
+  sources: Fonti
+  forks: Forchette
+noDescription: Nessuna descrizione
+updated: Aggiornata
+more: Altro su GitHub
+error: Impossibile recuperare i repository GitHub!

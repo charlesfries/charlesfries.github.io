@@ -1,10 +1,10 @@
-import Controller from '@ember/controller';
+import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 
 import type Intl from 'ember-intl/services/intl';
 
-export default class ApplicationController extends Controller {
+export default class Locale extends Component {
   @service declare intl: Intl;
 
   @action

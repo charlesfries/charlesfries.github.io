@@ -9,6 +9,6 @@ module('Integration | Component | contact', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<Contact />`);
 
-    assert.dom().hasText('');
+    assert.dom('a').exists({ count: 5 });
   });
 });

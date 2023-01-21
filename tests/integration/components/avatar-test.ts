@@ -9,6 +9,6 @@ module('Integration | Component | avatar', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<Avatar />`);
 
-    assert.dom().hasText('');
+    assert.dom('img').exists();
   });
 });

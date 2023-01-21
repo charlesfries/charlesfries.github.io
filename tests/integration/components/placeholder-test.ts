@@ -9,6 +9,7 @@ module('Integration | Component | placeholder', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<Placeholder />`);
 
-    assert.dom().hasText('');
+    assert.dom('.card').exists();
+    assert.dom('.placeholder').exists();
   });
 });

@@ -10,5 +10,6 @@ module('Integration | Component | locale', function (hooks) {
     await render(hbs`<Locale />`);
 
     assert.dom().hasText('English 中文 Español Français Italiano');
+    assert.dom('select').exists();
   });
 });

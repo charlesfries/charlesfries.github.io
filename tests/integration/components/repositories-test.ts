@@ -9,6 +9,6 @@ module('Integration | Component | repositories', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<Repositories @repositories={{(array)}} />`);
 
-    assert.dom().hasText('');
+    assert.dom('.row').exists();
   });
 });

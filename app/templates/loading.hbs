@@ -7,22 +7,18 @@
     </group.button>
   </toolbar.group>
   <toolbar.group as |group|>
-    <group.button
-      @color='dark'
-      class='disabled'
-      tabindex='-1'
-      {{dropdown}}
-    >updated</group.button>
+    <group.button @color='dark' class='disabled' tabindex='-1' {{dropdown}}>
+      {{t 'sort.updated'}}
+    </group.button>
   </toolbar.group>
   <toolbar.group>
-    {{! template-lint-disable require-presentational-children }}
     <LinkTo
       @query={{hash direction='desc'}}
       class='btn btn-outline-dark disabled'
       role='button'
       tabindex='-1'
     >
-      <FaIcon @icon='sort-amount-down' />
+      <FaIcon @icon='sort-amount-down' role='presentation' />
     </LinkTo>
     <LinkTo
       @query={{hash direction='asc'}}
@@ -30,7 +26,7 @@
       role='button'
       tabindex='-1'
     >
-      <FaIcon @icon='sort-amount-up' />
+      <FaIcon @icon='sort-amount-up' role='presentation' />
     </LinkTo>
   </toolbar.group>
   <toolbar.group>

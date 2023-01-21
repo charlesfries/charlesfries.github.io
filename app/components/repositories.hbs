@@ -1,11 +1,11 @@
 <div class='row row-cols-md-3 row-cols-sm-2 row-cols-1 g-3 mb-3'>
   {{#each @repositories as |repository|}}
     <div class='col'>
-      <Bs::Card class='hover' as |card|>
-        <card.body>
+      <div class='card clickable'>
+        <div class='card-body'>
           <Repository @repository={{repository}} />
-        </card.body>
-      </Bs::Card>
+        </div>
+      </div>
     </div>
   {{/each}}
 </div>

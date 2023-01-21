@@ -7,7 +7,15 @@
     </group.button>
   </toolbar.group>
   <toolbar.group as |group|>
-    <group.button @color='dark' {{dropdown}}>{{this.sort}}</group.button>
+    <group.button @color='dark' {{dropdown}}>
+      {{#if (eq 'created' this.sort)}}
+        {{t 'sort.created'}}
+      {{else if (eq 'updated' this.sort)}}
+        {{t 'sort.updated'}}
+      {{else if (eq 'full_name' this.sort)}}
+        {{t 'sort.name'}}
+      {{/if}}
+    </group.button>
     <Bs::Dropdown>
       <LinkTo @query={{hash sort='created'}} class='dropdown-item'>
         {{t 'sort.created'}}
@@ -21,20 +29,19 @@
     </Bs::Dropdown>
   </toolbar.group>
   <toolbar.group>
-    {{! template-lint-disable require-presentational-children }}
     <LinkTo
       @query={{hash direction='desc'}}
       class='btn btn-outline-dark'
       role='button'
     >
-      <FaIcon @icon='sort-amount-down' />
+      <FaIcon @icon='sort-amount-down' role='presentation' />
     </LinkTo>
     <LinkTo
       @query={{hash direction='asc'}}
       class='btn btn-outline-dark'
       role='button'
     >
-      <FaIcon @icon='sort-amount-up' />
+      <FaIcon @icon='sort-amount-up' role='presentation' />
     </LinkTo>
   </toolbar.group>
   <toolbar.group>

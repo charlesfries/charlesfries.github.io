@@ -3,8 +3,8 @@ summary: My name is {name}. I am the <strong>Lead Software Engineer</strong> at 
 projects: Projects
 locale: Locale
 sort:
-  created: Created Date
-  updated: Updated Date
+  created: Created
+  updated: Updated
   name: Name
 type:
   all: All

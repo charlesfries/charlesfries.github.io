@@ -1,12 +1,15 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'charlesfries/tests/helpers';
 
+import type IndexController from 'charlesfries/controllers';
+
 module('Unit | Controller | index', function (hooks) {
   setupTest(hooks);
 
-  // TODO: Replace this with your real tests.
   test('it exists', function (assert) {
-    const controller = this.owner.lookup('controller:index');
+    const controller = this.owner.lookup('controller:index') as IndexController;
     assert.ok(controller);
+
+    assert.ok(controller.refresh);
   });
 });

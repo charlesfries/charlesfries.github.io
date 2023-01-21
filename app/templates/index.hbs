@@ -1,60 +1,66 @@
-<div class='d-flex justify-content-between mb-3'>
-  <h3 class='mb-0'>Projects</h3>
-  <div>
-    <Bs::Toolbar @size='sm' as |toolbar|>
-      <toolbar.group class='me-2' as |group|>
-        <group.button @onClick={{this.reload}}>
-          <FaIcon @icon='redo' />
-        </group.button>
-      </toolbar.group>
-      <toolbar.group class='me-2' as |group|>
-        <group.button {{dropdown}}>{{this.sort}}</group.button>
-        <Bs::Dropdown>
-          <LinkTo @query={{hash sort='created'}} class='dropdown-item'>
-            Created Date
-          </LinkTo>
-          <LinkTo @query={{hash sort='updated'}} class='dropdown-item'>
-            Updated Date
-          </LinkTo>
-          <LinkTo @query={{hash sort='stars'}} class='dropdown-item'>
-            Stars
-          </LinkTo>
-        </Bs::Dropdown>
-      </toolbar.group>
-      <toolbar.group class='me-2'>
-        <LinkTo
-          @query={{hash direction='desc'}}
-          class='btn btn-outline-secondary'
-        >
-          <FaIcon @icon='sort-amount-down' />
-        </LinkTo>
-        <LinkTo
-          @query={{hash direction='asc'}}
-          class='btn btn-outline-secondary'
-        >
-          <FaIcon @icon='sort-amount-up' />
-        </LinkTo>
-      </toolbar.group>
-      <toolbar.group>
-        <LinkTo
-          @query={{hash type=undefined}}
-          class='btn btn-outline-secondary'
-          role='button'
-        >All</LinkTo>
-        <LinkTo
-          @query={{hash type='sources'}}
-          class='btn btn-outline-secondary'
-          role='button'
-        >Sources</LinkTo>
-        <LinkTo
-          @query={{hash type='forks'}}
-          class='btn btn-outline-secondary'
-          role='button'
-        >Forks</LinkTo>
-      </toolbar.group>
-    </Bs::Toolbar>
-  </div>
-</div>
+<h2 class='mb-3'>{{t 'projects'}}</h2>
+
+<Bs::Toolbar class='gap-2 mb-3' as |toolbar|>
+  <toolbar.group as |group|>
+    <group.button @color='dark' @onClick={{this.refresh}}>
+      <FaIcon @icon='redo' />
+    </group.button>
+  </toolbar.group>
+  <toolbar.group as |group|>
+    <group.button @color='dark' {{dropdown}}>{{this.sort}}</group.button>
+    <Bs::Dropdown>
+      <LinkTo @query={{hash sort='created'}} class='dropdown-item'>
+        {{t 'sort.created'}}
+      </LinkTo>
+      <LinkTo @query={{hash sort='updated'}} class='dropdown-item'>
+        {{t 'sort.updated'}}
+      </LinkTo>
+      <LinkTo @query={{hash sort='full_name'}} class='dropdown-item'>
+        {{t 'sort.name'}}
+      </LinkTo>
+    </Bs::Dropdown>
+  </toolbar.group>
+  <toolbar.group>
+    {{! template-lint-disable require-presentational-children }}
+    <LinkTo
+      @query={{hash direction='desc'}}
+      class='btn btn-outline-dark'
+      role='button'
+    >
+      <FaIcon @icon='sort-amount-down' />
+    </LinkTo>
+    <LinkTo
+      @query={{hash direction='asc'}}
+      class='btn btn-outline-dark'
+      role='button'
+    >
+      <FaIcon @icon='sort-amount-up' />
+    </LinkTo>
+  </toolbar.group>
+  <toolbar.group>
+    <LinkTo
+      @query={{hash type=undefined}}
+      class='btn btn-outline-dark'
+      role='button'
+    >
+      {{t 'type.all'}}
+    </LinkTo>
+    <LinkTo
+      @query={{hash type='sources'}}
+      class='btn btn-outline-dark'
+      role='button'
+    >
+      {{t 'type.sources'}}
+    </LinkTo>
+    <LinkTo
+      @query={{hash type='forks'}}
+      class='btn btn-outline-dark'
+      role='button'
+    >
+      {{t 'type.forks'}}
+    </LinkTo>
+  </toolbar.group>
+</Bs::Toolbar>
 
 <Repositories @repositories={{this.repositories}} />
 
@@ -63,7 +69,5 @@
   href='https://github.com/charlesfries'
   role='button'
 >
-  More on GitHub
+  {{t 'more'}}
 </a>
-
-{{outlet}}

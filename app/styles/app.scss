@@ -3,33 +3,34 @@
 $headings-font-weight: 800;
 $font-family-sans-serif: 'Inter', sans-serif;
 $primary: #334bfa;
-$placeholder-opacity-max: 0.3;
-$placeholder-opacity-min: 0.2;
-// $body-bg: #FFFEFC;
 
 @import 'node_modules/bootstrap/scss/bootstrap';
 
+@keyframes color-foreground-rotate {
+  0% {
+    color: #3556e3;
+  }
+  20% {
+    color: #1c9b40;
+  }
+  40% {
+    color: #ff9e29;
+  }
+  60% {
+    color: #e01e1e;
+  }
+  80% {
+    color: #ae2af4;
+  }
+  100% {
+    color: #3556e3;
+  }
+}
+
 .special {
   animation: color-foreground-rotate 2s linear infinite;
+}
 
-  @keyframes color-foreground-rotate {
-    0% {
-      color: #3556e3;
-    }
-    20% {
-      color: #1c9b40;
-    }
-    40% {
-      color: #ff9e29;
-    }
-    60% {
-      color: #e01e1e;
-    }
-    80% {
-      color: #ae2af4;
-    }
-    100% {
-      color: #3556e3;
-    }
-  }
+.hover:hover {
+  border-color: $primary;
 }

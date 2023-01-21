@@ -28,7 +28,7 @@ function setupApplicationTest(hooks: NestedHooks, options: SetupTestOptions) {
   // setupMirage(hooks); // ember-cli-mirage
 }
 
-function setupRenderingTest(hooks: NestedHooks, options: SetupTestOptions) {
+function setupRenderingTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupRenderingTest(hooks, options);
 
   // Additional setup for rendering tests can be done here.

@@ -1,7 +1,7 @@
-export default function sleep(milliseconds: number): Promise<void> {
+export default function sleep(millis: number): Promise<void> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve();
-    }, milliseconds);
+    }, millis);
   });
 }

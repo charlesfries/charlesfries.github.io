@@ -2,12 +2,16 @@ import Route from '@ember/routing/route';
 import sleep from 'charlesfries/utils/sleep';
 
 interface Params {
-  sort?: string;
-  direction?: string;
-  type?: string;
+  sort?: 'created' | 'updated' | 'full_name';
+  direction?: 'asc' | 'desc';
+  type?: 'sources' | 'forks';
 }
 
-const DELAY = 600;
+export interface Repo {
+  fork: boolean;
+}
+
+const DELAY = 500;
 
 export default class IndexRoute extends Route {
   queryParams = {
@@ -16,7 +20,7 @@ export default class IndexRoute extends Route {
     type: { refreshModel: false },
   };
 
-  async model({ sort, direction }: Params): Promise<unknown[]> {
+  async model({ sort, direction }: Params): Promise<Repo[]> {
     await sleep(DELAY);
 
     const url = new URL('https://api.github.com/users/charlesfries/repos');
@@ -29,6 +33,10 @@ export default class IndexRoute extends Route {
     }
 
     const response = await fetch(url.href);
+    if (!response.ok) {
+      throw new Error('not ok');
+    }
+
     const repositories = await response.json();
 
     return repositories;

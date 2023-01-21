@@ -1,60 +1,67 @@
-<div class='d-flex justify-content-between mb-3'>
-  <h3 class='mb-0'>Projects</h3>
-  <div>
-    <Bs::Toolbar @size='sm' as |toolbar|>
-      <toolbar.group class='me-2' as |group|>
-        <group.button>
-          <FaIcon @icon='redo' />
-        </group.button>
-      </toolbar.group>
-      <toolbar.group class='me-2' as |group|>
-        <group.button {{dropdown}}>updated</group.button>
-        <Bs::Dropdown>
-          <LinkTo @query={{hash sort='created'}} class='dropdown-item'>
-            Created Date
-          </LinkTo>
-          <LinkTo @query={{hash sort='updated'}} class='dropdown-item'>
-            Updated Date
-          </LinkTo>
-          <LinkTo @query={{hash sort='stars'}} class='dropdown-item'>
-            Stars
-          </LinkTo>
-        </Bs::Dropdown>
-      </toolbar.group>
-      <toolbar.group class='me-2'>
-        <a
-          href='#'
-          tabindex='-1'
-          class='btn btn-outline-secondary disabled placeholder'
-        ><FaIcon @icon='sort-amount-down' /></a>
-        <a
-          href='#'
-          tabindex='-1'
-          class='btn btn-outline-secondary disabled placeholder'
-        ><FaIcon @icon='sort-amount-up' /></a>
-      </toolbar.group>
-      <toolbar.group>
-        <a
-          href='#'
-          tabindex='-1'
-          class='btn btn-outline-secondary disabled placeholder'
-        >All</a>
-        <a
-          href='#'
-          tabindex='-1'
-          class='btn btn-outline-secondary disabled placeholder'
-        >Sources</a>
-        <a
-          href='#'
-          tabindex='-1'
-          class='btn btn-outline-secondary disabled placeholder'
-        >Forks</a>
-      </toolbar.group>
-    </Bs::Toolbar>
-  </div>
-</div>
+<h2 class='mb-3'>{{t 'projects'}}</h2>
 
-<div class='row row-cols-3 g-4 mb-5'>
+<Bs::Toolbar class='gap-2 mb-3' as |toolbar|>
+  <toolbar.group as |group|>
+    <group.button @color='dark' class='disabled' tabindex='-1'>
+      <FaIcon @icon='redo' />
+    </group.button>
+  </toolbar.group>
+  <toolbar.group as |group|>
+    <group.button
+      @color='dark'
+      class='disabled'
+      tabindex='-1'
+      {{dropdown}}
+    >updated</group.button>
+  </toolbar.group>
+  <toolbar.group>
+    {{! template-lint-disable require-presentational-children }}
+    <LinkTo
+      @query={{hash direction='desc'}}
+      class='btn btn-outline-dark disabled'
+      role='button'
+      tabindex='-1'
+    >
+      <FaIcon @icon='sort-amount-down' />
+    </LinkTo>
+    <LinkTo
+      @query={{hash direction='asc'}}
+      class='btn btn-outline-dark disabled'
+      role='button'
+      tabindex='-1'
+    >
+      <FaIcon @icon='sort-amount-up' />
+    </LinkTo>
+  </toolbar.group>
+  <toolbar.group>
+    <LinkTo
+      @query={{hash type=undefined}}
+      class='btn btn-outline-dark disabled'
+      role='button'
+      tabindex='-1'
+    >
+      {{t 'type.all'}}
+    </LinkTo>
+    <LinkTo
+      @query={{hash type='sources'}}
+      class='btn btn-outline-dark disabled'
+      role='button'
+      tabindex='-1'
+    >
+      {{t 'type.sources'}}
+    </LinkTo>
+    <LinkTo
+      @query={{hash type='forks'}}
+      class='btn btn-outline-dark disabled'
+      role='button'
+      tabindex='-1'
+    >
+      {{t 'type.forks'}}
+    </LinkTo>
+  </toolbar.group>
+</Bs::Toolbar>
+
+<div class='row row-cols-md-3 row-cols-sm-2 row-cols-1 g-3 mb-3'>
   <Placeholder />
   <Placeholder />
   <Placeholder />

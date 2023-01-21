@@ -1,9 +1,9 @@
-<a href={{@repository.html_url}}>
+<a href={{@repository.html_url}} class='stretched-link'>
   {{@repository.name}}</a>
-⭐
+<FaIcon @icon='star' class='text-warning' />
 {{@repository.stargazers_count}}
 {{#if @repository.fork}}
-  🍴
+  <FaIcon @icon='code-fork' class='text-secondary' />
 {{/if}}
 <br />
 {{#if @repository.language}}
@@ -14,5 +14,11 @@
 {{#if @repository.description}}
   {{@repository.description}}
 {{else}}
-  <i>No Description</i>
+  <i>{{t 'noDescription'}}</i>
 {{/if}}
+<p class='card-text'>
+  <small class='text-muted'>
+    {{t 'updated'}}
+    {{timestamp @repository.updated_at}}
+  </small>
+</p>

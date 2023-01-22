@@ -1,5 +1,5 @@
 name: Charles Fries
-summary: 我的名字是 {name}。我是 <strong>Trusted American Insurance</strong> 的<strong>首席软件工程师</strong>。 之前，我是 <strong>McMillan Study Guides</strong> 的一名<strong>Web 应用程序开发人员</strong>。 我喜欢在 OSS 上工作并思考开发人员的体验。 你可以在 GitHub、LinkedIn、Twitter、Instagram 上找到我，或者通过电子邮件联系我。
+description: 我的名字是 {name}。我是 <strong>Trusted American Insurance</strong> 的<strong>首席软件工程师</strong>。 之前，我是 <strong>McMillan Study Guides</strong> 的一名<strong>Web 应用程序开发人员</strong>。 我喜欢在 OSS 上工作并思考开发人员的体验。 你可以在 GitHub、LinkedIn、Twitter、Instagram 上找到我，或者通过电子邮件联系我。
 projects: 项目
 locale: 语言环境
 sort:

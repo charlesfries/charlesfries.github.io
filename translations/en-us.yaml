@@ -1,5 +1,5 @@
 name: Charles Fries
-summary: My name is {name}. I am the <strong>Lead Software Engineer</strong> at <strong>Trusted American Insurance</strong>. Previously, I was a <strong>Web Application Developer</strong> at <strong>McMillan Study Guides</strong>. I love working on OSS and thinking about the developer experience. You can find me on GitHub, LinkedIn, Twitter, Instagram, or reach me via email.
+description: My name is {name}. I am the <strong>Lead Software Engineer</strong> at <strong>Trusted American Insurance</strong>. Previously, I was a <strong>Web Application Developer</strong> at <strong>McMillan Study Guides</strong>. I love working on OSS and thinking about the developer experience. You can find me on GitHub, LinkedIn, Twitter, Instagram, or reach me via email.
 projects: Projects
 locale: Locale
 sort:

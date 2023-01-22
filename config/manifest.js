@@ -11,11 +11,11 @@ module.exports = function (/* environment, appConfig */) {
     start_url: '/',
     scope: '/',
     display: 'standalone',
-    background_color: '#fff',
-    theme_color: '#fff',
+    background_color: '#fcf4e5',
+    theme_color: '#fcf4e5',
     icons: [],
     ms: {
-      tileColor: '#fff',
+      tileColor: '#fcf4e5',
     },
   };
 };

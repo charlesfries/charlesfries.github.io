@@ -2,7 +2,11 @@
 
 <Bs::Toolbar class="gap-2 mb-3" as |toolbar|>
   <toolbar.group as |group|>
-    <group.button @color="dark" @onClick={{this.refresh}} aria-label="Refresh">
+    <group.button
+      @color="dark"
+      aria-label="Refresh"
+      {{on "click" this.refresh}}
+    >
       <FaIcon @icon="redo" role="presentation" />
     </group.button>
   </toolbar.group>

@@ -1,70 +1,70 @@
 <Subheading />
 
-<Bs::Toolbar class='gap-2 mb-3' as |toolbar|>
+<Bs::Toolbar class="gap-2 mb-3" as |toolbar|>
   <toolbar.group as |group|>
-    <group.button @color='dark' @onClick={{this.refresh}}>
-      <FaIcon @icon='redo' />
+    <group.button @color="dark" @onClick={{this.refresh}}>
+      <FaIcon @icon="redo" />
     </group.button>
   </toolbar.group>
   <toolbar.group as |group|>
-    <group.button @color='dark' {{dropdown}}>
-      {{#if (eq 'created' this.sort)}}
-        {{t 'sort.created'}}
-      {{else if (eq 'updated' this.sort)}}
-        {{t 'sort.updated'}}
-      {{else if (eq 'full_name' this.sort)}}
-        {{t 'sort.name'}}
+    <group.button @color="dark" {{dropdown}}>
+      {{#if (eq "created" this.sort)}}
+        {{t "sort.created"}}
+      {{else if (eq "updated" this.sort)}}
+        {{t "sort.updated"}}
+      {{else if (eq "full_name" this.sort)}}
+        {{t "sort.name"}}
       {{/if}}
     </group.button>
     <Bs::Dropdown>
-      <LinkTo @query={{hash sort='created'}} class='dropdown-item'>
-        {{t 'sort.created'}}
+      <LinkTo @query={{hash sort="created"}} class="dropdown-item">
+        {{t "sort.created"}}
       </LinkTo>
-      <LinkTo @query={{hash sort='updated'}} class='dropdown-item'>
-        {{t 'sort.updated'}}
+      <LinkTo @query={{hash sort="updated"}} class="dropdown-item">
+        {{t "sort.updated"}}
       </LinkTo>
-      <LinkTo @query={{hash sort='full_name'}} class='dropdown-item'>
-        {{t 'sort.name'}}
+      <LinkTo @query={{hash sort="full_name"}} class="dropdown-item">
+        {{t "sort.name"}}
       </LinkTo>
     </Bs::Dropdown>
   </toolbar.group>
   <toolbar.group>
     <LinkTo
-      @query={{hash direction='desc'}}
-      class='btn btn-outline-dark'
-      role='button'
+      @query={{hash direction="desc"}}
+      class="btn btn-outline-dark"
+      role="button"
     >
-      <FaIcon @icon='sort-amount-down' role='presentation' />
+      <FaIcon @icon="sort-amount-down" role="presentation" />
     </LinkTo>
     <LinkTo
-      @query={{hash direction='asc'}}
-      class='btn btn-outline-dark'
-      role='button'
+      @query={{hash direction="asc"}}
+      class="btn btn-outline-dark"
+      role="button"
     >
-      <FaIcon @icon='sort-amount-up' role='presentation' />
+      <FaIcon @icon="sort-amount-up" role="presentation" />
     </LinkTo>
   </toolbar.group>
   <toolbar.group>
     <LinkTo
       @query={{hash type=undefined}}
-      class='btn btn-outline-dark'
-      role='button'
+      class="btn btn-outline-dark"
+      role="button"
     >
-      {{t 'type.all'}}
+      {{t "type.all"}}
     </LinkTo>
     <LinkTo
-      @query={{hash type='sources'}}
-      class='btn btn-outline-dark'
-      role='button'
+      @query={{hash type="sources"}}
+      class="btn btn-outline-dark"
+      role="button"
     >
-      {{t 'type.sources'}}
+      {{t "type.sources"}}
     </LinkTo>
     <LinkTo
-      @query={{hash type='forks'}}
-      class='btn btn-outline-dark'
-      role='button'
+      @query={{hash type="forks"}}
+      class="btn btn-outline-dark"
+      role="button"
     >
-      {{t 'type.forks'}}
+      {{t "type.forks"}}
     </LinkTo>
   </toolbar.group>
 </Bs::Toolbar>
@@ -72,9 +72,9 @@
 <Repositories @repositories={{this.repositories}} />
 
 <a
-  class='btn btn-outline-primary'
-  href='https://github.com/charlesfries'
-  role='button'
+  class="btn btn-outline-primary"
+  href="https://github.com/charlesfries"
+  role="button"
 >
-  {{t 'more'}}
+  {{t "more"}}
 </a>

@@ -1,63 +1,63 @@
 <Subheading />
 
-<Bs::Toolbar class='gap-2 mb-3' as |toolbar|>
+<Bs::Toolbar class="gap-2 mb-3" as |toolbar|>
   <toolbar.group as |group|>
-    <group.button @color='dark' class='disabled' tabindex='-1'>
-      <FaIcon @icon='redo' />
+    <group.button @color="dark" class="disabled" tabindex="-1">
+      <FaIcon @icon="redo" />
     </group.button>
   </toolbar.group>
   <toolbar.group as |group|>
-    <group.button @color='dark' class='disabled' tabindex='-1' {{dropdown}}>
-      {{t 'sort.updated'}}
+    <group.button @color="dark" class="disabled" tabindex="-1" {{dropdown}}>
+      {{t "sort.updated"}}
     </group.button>
   </toolbar.group>
   <toolbar.group>
     <LinkTo
-      @query={{hash direction='desc'}}
-      class='btn btn-outline-dark disabled'
-      role='button'
-      tabindex='-1'
+      @query={{hash direction="desc"}}
+      class="btn btn-outline-dark disabled"
+      role="button"
+      tabindex="-1"
     >
-      <FaIcon @icon='sort-amount-down' role='presentation' />
+      <FaIcon @icon="sort-amount-down" role="presentation" />
     </LinkTo>
     <LinkTo
-      @query={{hash direction='asc'}}
-      class='btn btn-outline-dark disabled'
-      role='button'
-      tabindex='-1'
+      @query={{hash direction="asc"}}
+      class="btn btn-outline-dark disabled"
+      role="button"
+      tabindex="-1"
     >
-      <FaIcon @icon='sort-amount-up' role='presentation' />
+      <FaIcon @icon="sort-amount-up" role="presentation" />
     </LinkTo>
   </toolbar.group>
   <toolbar.group>
     <LinkTo
       @query={{hash type=undefined}}
-      class='btn btn-outline-dark disabled'
-      role='button'
-      tabindex='-1'
+      class="btn btn-outline-dark disabled"
+      role="button"
+      tabindex="-1"
     >
-      {{t 'type.all'}}
+      {{t "type.all"}}
     </LinkTo>
     <LinkTo
-      @query={{hash type='sources'}}
-      class='btn btn-outline-dark disabled'
-      role='button'
-      tabindex='-1'
+      @query={{hash type="sources"}}
+      class="btn btn-outline-dark disabled"
+      role="button"
+      tabindex="-1"
     >
-      {{t 'type.sources'}}
+      {{t "type.sources"}}
     </LinkTo>
     <LinkTo
-      @query={{hash type='forks'}}
-      class='btn btn-outline-dark disabled'
-      role='button'
-      tabindex='-1'
+      @query={{hash type="forks"}}
+      class="btn btn-outline-dark disabled"
+      role="button"
+      tabindex="-1"
     >
-      {{t 'type.forks'}}
+      {{t "type.forks"}}
     </LinkTo>
   </toolbar.group>
 </Bs::Toolbar>
 
-<div class='row row-cols-md-3 row-cols-sm-2 row-cols-1 g-3 mb-3'>
+<div class="row row-cols-md-3 row-cols-sm-2 row-cols-1 g-3 mb-3">
   <Placeholder />
   <Placeholder />
   <Placeholder />

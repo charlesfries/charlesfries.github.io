@@ -2,8 +2,8 @@
 
 <Bs::Toolbar class="gap-2 mb-3" as |toolbar|>
   <toolbar.group as |group|>
-    <group.button @color="dark" @onClick={{this.refresh}}>
-      <FaIcon @icon="redo" />
+    <group.button @color="dark" @onClick={{this.refresh}} aria-label="Refresh">
+      <FaIcon @icon="redo" role="presentation" />
     </group.button>
   </toolbar.group>
   <toolbar.group as |group|>
@@ -33,6 +33,7 @@
       @query={{hash direction="desc"}}
       class="btn btn-outline-dark"
       role="button"
+      aria-label="Sort descending"
     >
       <FaIcon @icon="sort-amount-down" role="presentation" />
     </LinkTo>
@@ -40,6 +41,7 @@
       @query={{hash direction="asc"}}
       class="btn btn-outline-dark"
       role="button"
+      aria-label="Sort ascending"
     >
       <FaIcon @icon="sort-amount-up" role="presentation" />
     </LinkTo>

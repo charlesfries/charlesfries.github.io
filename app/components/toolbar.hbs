@@ -2,10 +2,10 @@
   <div class="btn-group" role="group">
     <button
       type="button"
-      class="btn btn-dark {{if @disabled 'disabled'}}"
+      class="btn btn-dark {{unless @onRefresh 'disabled'}}"
       aria-label="Refresh"
-      tabindex={{if @disabled "-1"}}
-      {{on "click" @onRefresh}}
+      tabindex={{unless @onRefresh "-1"}}
+      {{on "click" (if @onRefresh @onRefresh (fn (mut this.xyz)))}}
     >
       <FaIcon @icon="redo" role="presentation" />
     </button>
@@ -13,9 +13,9 @@
   <div class="btn-group" role="group">
     <button
       type="button"
-      class="btn btn-dark dropdown-toggle {{if @disabled 'disabled'}}"
+      class="btn btn-dark dropdown-toggle {{unless @onRefresh 'disabled'}}"
       data-bs-toggle="dropdown"
-      tabindex={{if @disabled "-1"}}
+      tabindex={{unless @onRefresh "-1"}}
     >
       {{#if (eq "created" @sort)}}
         {{t "sort.created"}}
@@ -40,19 +40,19 @@
   <div class="btn-group" role="group">
     <LinkTo
       @query={{hash direction="desc"}}
-      class="btn btn-outline-dark {{if @disabled 'disabled'}}"
+      class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
       role="button"
       aria-label="Sort descending"
-      tabindex={{if @disabled "-1"}}
+      tabindex={{unless @onRefresh "-1"}}
     >
       <FaIcon @icon="sort-amount-down" role="presentation" />
     </LinkTo>
     <LinkTo
       @query={{hash direction="asc"}}
-      class="btn btn-outline-dark {{if @disabled 'disabled'}}"
+      class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
       role="button"
       aria-label="Sort ascending"
-      tabindex={{if @disabled "-1"}}
+      tabindex={{unless @onRefresh "-1"}}
     >
       <FaIcon @icon="sort-amount-up" role="presentation" />
     </LinkTo>
@@ -60,25 +60,25 @@
   <div class="btn-group" role="group">
     <LinkTo
       @query={{hash type=undefined}}
-      class="btn btn-outline-dark {{if @disabled 'disabled'}}"
+      class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
       role="button"
-      tabindex={{if @disabled "-1"}}
+      tabindex={{unless @onRefresh "-1"}}
     >
       {{t "type.all"}}
     </LinkTo>
     <LinkTo
       @query={{hash type="sources"}}
-      class="btn btn-outline-dark {{if @disabled 'disabled'}}"
+      class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
       role="button"
-      tabindex={{if @disabled "-1"}}
+      tabindex={{unless @onRefresh "-1"}}
     >
       {{t "type.sources"}}
     </LinkTo>
     <LinkTo
       @query={{hash type="forks"}}
-      class="btn btn-outline-dark {{if @disabled 'disabled'}}"
+      class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
       role="button"
-      tabindex={{if @disabled "-1"}}
+      tabindex={{unless @onRefresh "-1"}}
     >
       {{t "type.forks"}}
     </LinkTo>

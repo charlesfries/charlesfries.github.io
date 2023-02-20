@@ -1,10 +1,14 @@
 import Route from '@ember/routing/route';
 import sleep from 'charlesfries/utils/sleep';
 
+export type Sort = 'created' | 'updated' | 'full_name';
+export type Direction = 'asc' | 'desc';
+export type Type = 'sources' | 'forks';
+
 interface Params {
-  sort?: 'created' | 'updated' | 'full_name';
-  direction?: 'asc' | 'desc';
-  type?: 'sources' | 'forks';
+  sort: Sort;
+  direction: Direction;
+  type?: Type;
 }
 
 export interface Repo {

@@ -8,7 +8,7 @@ module('Integration | Component | toolbar', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(
-      hbs`<Toolbar @disabled={{false}} @sort="updated" @onRefresh={{(optional)}} />`
+      hbs`<Toolbar @disabled={{false}} @sort="updated" @onRefresh={{fn (mut this.xyz)}} />`
     );
 
     assert.dom().hasText('Updated Created Updated Name All Sources Forks');

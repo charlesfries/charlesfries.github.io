@@ -1,21 +1,21 @@
-<Bs::Toolbar class="gap-2 mb-3" as |toolbar|>
-  <toolbar.group as |group|>
-    <group.button
-      @color="dark"
-      class={{if @disabled "disabled"}}
+<div class="btn-toolbar gap-2 mb-3" role="toolbar">
+  <div class="btn-group" role="group">
+    <button
+      type="button"
+      class="btn btn-dark {{if @disabled 'disabled'}}"
       aria-label="Refresh"
       tabindex={{if @disabled "-1"}}
       {{on "click" @onRefresh}}
     >
       <FaIcon @icon="redo" role="presentation" />
-    </group.button>
-  </toolbar.group>
-  <toolbar.group as |group|>
-    <group.button
-      @color="dark"
-      class={{if @disabled "disabled"}}
+    </button>
+  </div>
+  <div class="btn-group" role="group">
+    <button
+      type="button"
+      class="btn btn-dark dropdown-toggle {{if @disabled 'disabled'}}"
+      data-bs-toggle="dropdown"
       tabindex={{if @disabled "-1"}}
-      {{dropdown}}
     >
       {{#if (eq "created" @sort)}}
         {{t "sort.created"}}
@@ -24,8 +24,8 @@
       {{else if (eq "full_name" @sort)}}
         {{t "sort.name"}}
       {{/if}}
-    </group.button>
-    <Bs::Dropdown>
+    </button>
+    <div class="dropdown-menu">
       <LinkTo @query={{hash sort="created"}} class="dropdown-item">
         {{t "sort.created"}}
       </LinkTo>
@@ -35,9 +35,9 @@
       <LinkTo @query={{hash sort="full_name"}} class="dropdown-item">
         {{t "sort.name"}}
       </LinkTo>
-    </Bs::Dropdown>
-  </toolbar.group>
-  <toolbar.group>
+    </div>
+  </div>
+  <div class="btn-group" role="group">
     <LinkTo
       @query={{hash direction="desc"}}
       class="btn btn-outline-dark {{if @disabled 'disabled'}}"
@@ -56,8 +56,8 @@
     >
       <FaIcon @icon="sort-amount-up" role="presentation" />
     </LinkTo>
-  </toolbar.group>
-  <toolbar.group>
+  </div>
+  <div class="btn-group" role="group">
     <LinkTo
       @query={{hash type=undefined}}
       class="btn btn-outline-dark {{if @disabled 'disabled'}}"
@@ -82,5 +82,5 @@
     >
       {{t "type.forks"}}
     </LinkTo>
-  </toolbar.group>
-</Bs::Toolbar>
+  </div>
+</div>

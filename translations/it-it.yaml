@@ -5,6 +5,7 @@ locale: Locale
 sort:
   created: Data di Creazione
   updated: Data Aggiornata
+  pushed: Pushed
   name: Nome
 type:
   all: Tutte

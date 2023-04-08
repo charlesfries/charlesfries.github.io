@@ -13,7 +13,7 @@ export default class IndexController extends Controller {
 
   queryParams = ['type'];
 
-  @tracked sort: Sort = 'updated';
+  @tracked sort: Sort = 'pushed';
   @tracked direction: Direction = 'desc';
   @tracked type?: Type;
 

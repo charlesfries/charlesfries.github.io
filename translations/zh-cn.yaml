@@ -5,6 +5,7 @@ locale: 语言环境
 sort:
   created: 创建日期
   updated: 更新日期
+  pushed: Pushed
   name: 名称
 type:
   all: 全部

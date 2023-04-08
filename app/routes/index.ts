@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import sleep from 'charlesfries/utils/sleep';
 
-export type Sort = 'created' | 'updated' | 'full_name';
+export type Sort = 'created' | 'updated' | 'pushed' | 'full_name';
 export type Direction = 'asc' | 'desc';
 export type Type = 'sources' | 'forks';
 

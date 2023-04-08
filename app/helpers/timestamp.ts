@@ -2,7 +2,9 @@ import { helper } from '@ember/component/helper';
 
 export default helper(function timestamp([dateStr]: [string]) {
   const date = new Date(dateStr);
-  return `${date.toLocaleString('default', {
+  const month = date.toLocaleString('default', {
     month: 'long',
-  })} ${date.getFullYear()}`;
+  });
+  const year = date.getFullYear();
+  return `${month} ${year}`;
 });

@@ -8,9 +8,11 @@ module('Integration | Component | toolbar', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(
-      hbs`<Toolbar @sort="updated" @onRefresh={{fn (mut this.xyz)}} />`
+      hbs`<Toolbar @sort="pushed" @onRefresh={{fn (mut this.xyz)}} />`
     );
 
-    assert.dom().hasText('Updated Created Updated Name All Sources Forks');
+    assert
+      .dom()
+      .hasText('Pushed Created Updated Pushed Name All Sources Forks');
   });
 });

@@ -21,6 +21,8 @@
         {{t "sort.created"}}
       {{else if (eq "updated" @sort)}}
         {{t "sort.updated"}}
+      {{else if (eq "pushed" @sort)}}
+        {{t "sort.pushed"}}
       {{else if (eq "full_name" @sort)}}
         {{t "sort.name"}}
       {{/if}}
@@ -31,6 +33,9 @@
       </LinkTo>
       <LinkTo @query={{hash sort="updated"}} class="dropdown-item">
         {{t "sort.updated"}}
+      </LinkTo>
+      <LinkTo @query={{hash sort="pushed"}} class="dropdown-item">
+        {{t "sort.pushed"}}
       </LinkTo>
       <LinkTo @query={{hash sort="full_name"}} class="dropdown-item">
         {{t "sort.name"}}

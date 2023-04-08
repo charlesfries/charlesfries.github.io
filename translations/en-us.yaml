@@ -5,6 +5,7 @@ locale: Locale
 sort:
   created: Created
   updated: Updated
+  pushed: Pushed
   name: Name
 type:
   all: All

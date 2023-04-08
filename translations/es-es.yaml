@@ -5,6 +5,7 @@ locale: Lugar
 sort:
   created: Fecha de Creación
   updated: Fecha Actualizada
+  pushed: Pushed
   name: Nombre
 type:
   all: Todas

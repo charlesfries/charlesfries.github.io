@@ -9,7 +9,7 @@ export default class ApplicationRoute extends Route {
   @service declare intl: Intl;
   @service declare router: RouterService;
 
-  constructor(...args: any[]) {
+  constructor(...args: never[]) {
     super(...args);
 
     this.intl.setLocale('en-us');

@@ -57,13 +57,6 @@ module.exports = {
       files: ['**/*.ts'],
       plugins: ['@typescript-eslint'],
       extends: ['plugin:@typescript-eslint/recommended'],
-      rules: {
-        'ember/no-empty-glimmer-component-classes': 'off',
-        '@typescript-eslint/no-explicit-any': [
-          'error',
-          { ignoreRestArgs: true },
-        ],
-      },
     },
   ],
 };

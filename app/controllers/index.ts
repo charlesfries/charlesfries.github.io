@@ -3,11 +3,16 @@ import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-import type { Repo, Sort, Direction, Type } from 'charlesfries/routes/index';
+import type {
+  Repository,
+  Sort,
+  Direction,
+  Type,
+} from 'charlesfries/routes/index';
 import type RouterService from '@ember/routing/router-service';
 
 export default class IndexController extends Controller {
-  declare model: Repo[];
+  declare model: Repository[];
 
   @service declare router: RouterService;
 
@@ -17,7 +22,7 @@ export default class IndexController extends Controller {
   @tracked direction: Direction = 'desc';
   @tracked type?: Type;
 
-  get repositories(): Repo[] {
+  get repositories(): Repository[] {
     return this.model.filter(({ fork }) => {
       if (this.type) {
         return fork === ('forks' === this.type);

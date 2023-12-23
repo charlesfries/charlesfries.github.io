@@ -11,7 +11,7 @@ interface Params {
   type?: Type;
 }
 
-export interface Repo {
+export interface Repository {
   fork: boolean;
 }
 
@@ -24,7 +24,7 @@ export default class IndexRoute extends Route {
     type: { refreshModel: false },
   };
 
-  async model({ sort, direction }: Params): Promise<Repo[]> {
+  async model({ sort, direction }: Params): Promise<Repository[]> {
     await sleep(DELAY);
 
     const url = new URL('https://api.github.com/users/charlesfries/repos');

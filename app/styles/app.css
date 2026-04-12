@@ -1,10 +1,5 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 
-// $body-bg: #fcf4e5;
-// $card-bg: $body-bg;
-
-@import "node_modules/bootstrap/scss/bootstrap";
-
 @keyframes color-foreground-rotate {
   0% {
     color: #3556e3;
@@ -36,8 +31,5 @@
 }
 
 .clickable:hover {
-  @include transition($transition-base);
-
-  border-color: $primary;
-  box-shadow: $box-shadow;
+  border-color: var(--bs-primary);
 }

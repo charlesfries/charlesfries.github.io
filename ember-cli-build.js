@@ -5,11 +5,9 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     // Add options here
-    sassOptions: {
-      includePaths: ['node_modules/bootstrap/scss'],
-      onlyIncluded: true,
-    },
   });
+
+  app.import('node_modules/bootstrap/dist/css/bootstrap.css');
 
   return app.toTree();
 };

@@ -39,6 +39,17 @@ export default class IndexRoute extends Route {
       throw new Error('not ok');
     }
 
-    return (await response.json()) as GitHubRepository[];
+    const repositories = (await response.json()) as GitHubRepository[];
+
+    const remainingRequests = response.headers.get('X-RateLimit-Remaining');
+    const maxRequests = response.headers.get('X-RateLimit-Limit');
+    const resetAt = response.headers.get('X-RateLimit-Reset');
+
+    return {
+      repositories,
+      remainingRequests,
+      maxRequests,
+      resetAt: new Date(Number(resetAt) * 1000).toLocaleTimeString(),
+    };
   }
 }

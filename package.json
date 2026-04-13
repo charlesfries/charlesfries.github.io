@@ -50,6 +50,7 @@
     "@glint/tsserver-plugin": "^2.4.0",
     "@popperjs/core": "^2.11.7",
     "@tsconfig/ember": "^3.0.11",
+    "@types/bootstrap": "^5.2.10",
     "@types/mixpanel-browser": "^2.38.1",
     "@types/qunit": "^2.19.13",
     "@types/rsvp": "^4.0.9",

@@ -20,7 +20,7 @@ export interface ToolbarSignature {
 }
 
 <template>
-  <div class="btn-toolbar gap-2 mb-3" role="toolbar">
+  <div class="btn-toolbar gap-2" role="toolbar">
     <div class="btn-group" role="group">
       <button
         type="button"

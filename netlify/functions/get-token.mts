@@ -5,7 +5,20 @@ export default (request: Request, context: Context) => {
     const url = new URL(request.url);
     const subject = url.searchParams.get('name') || 'World';
 
-    return new Response(`Hello ${subject}`);
+    return new Response(
+      JSON.stringify({
+        data: {
+          type: 'user',
+          id: '1',
+          attributes: { message: `Hello ${subject}` },
+        },
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
   } catch (error) {
     return new Response((error as Error).toString(), {
       status: 500,

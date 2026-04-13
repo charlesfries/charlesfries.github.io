@@ -1,7 +1,7 @@
 <template>
   {{! template-lint-disable no-bare-strings  }}
 
-  <p>
+  <div class="flex flex-wrap items-start gap-1">
     <img
       width="63"
       height="20"
@@ -170,5 +170,5 @@
       alt="Ubuntu"
       src="https://img.shields.io/badge/-Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white"
     />
-  </p>
+  </div>
 </template>

@@ -1,13 +1,11 @@
 import Placeholder from 'charlesfries/components/placeholder';
-import Subheading from 'charlesfries/components/subheading';
-import Toolbar from 'charlesfries/components/toolbar';
+import RateLimit from 'charlesfries/components/rate-limit';
 
 <template>
-  <Subheading />
-  <div class="mb-3">
-    <Toolbar @sort="pushed" />
-  </div>
-  <div class="row row-cols-md-3 row-cols-sm-2 row-cols-1 g-3 mb-3">
+  <RateLimit @remaining={{null}} @max={{null}} @resetAt={{null}} />
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+  >
     <Placeholder />
     <Placeholder />
     <Placeholder />

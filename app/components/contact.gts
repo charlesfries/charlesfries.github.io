@@ -10,7 +10,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { t } from 'ember-intl';
 
 <template>
-  <div class="d-flex gap-3 mb-4">
+  <div class="flex gap-3 mb-6">
     <a
       href="https://github.com/charlesfries"
       class="link-dark"

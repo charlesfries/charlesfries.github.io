@@ -2,10 +2,8 @@ import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import type { Direction, Sort, Type } from 'charlesfries/routes/index';
 
-export default class IndexController extends Controller {
-  // queryParams = ['type'];
-
+export default class ApplicationController extends Controller {
   @tracked sort: Sort = 'pushed';
   @tracked direction: Direction = 'desc';
-  @tracked type?: Type;
+  @tracked _type?: Type;
 }

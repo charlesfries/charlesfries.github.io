@@ -8,6 +8,12 @@ export default class ApplicationRoute extends Route {
   @service declare intl: Intl;
   @service declare router: RouterService;
 
+  queryParams = {
+    sort: { refreshModel: true },
+    direction: { refreshModel: true },
+    _type: { refreshModel: false },
+  };
+
   constructor(...args: never[]) {
     super(...args);
 
@@ -18,5 +24,9 @@ export default class ApplicationRoute extends Route {
       const title = this.router.currentRouteName || 'unknown';
       mixpanel.track('Page view', { page, title });
     });
+  }
+
+  model(params: any) {
+    console.log('application', params.sort, params.direction);
   }
 }

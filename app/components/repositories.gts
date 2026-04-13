@@ -7,15 +7,11 @@ export interface RepositoriesSignature {
 }
 
 <template>
-  <div class="row row-cols-md-3 row-cols-sm-2 row-cols-1 g-3 mb-3">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+  >
     {{#each @repositories as |repository|}}
-      <div class="col">
-        <div class="card clickable">
-          <div class="card-body">
-            <Repository @repository={{repository}} />
-          </div>
-        </div>
-      </div>
+      <Repository @repository={{repository}} />
     {{/each}}
   </div>
 </template> satisfies TOC<RepositoriesSignature>;

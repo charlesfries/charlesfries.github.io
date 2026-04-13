@@ -10,28 +10,33 @@ export interface RepositorySignature {
 }
 
 <template>
-  <a href={{@repository.html_url}} class="stretched-link">
-    {{@repository.name}}</a>
-  <FaIcon @icon={{faStar}} class="text-warning" />
-  {{@repository.stargazers_count}}
-  {{#if @repository.fork}}
-    <FaIcon @icon={{faCodeFork}} class="text-secondary" />
-  {{/if}}
-  <br />
-  {{#if @repository.language}}
-    <strong class="text-success">
-      {{@repository.language}}
-    </strong>
-  {{/if}}
-  {{#if @repository.description}}
-    {{@repository.description}}
-  {{else}}
-    <i>{{t "noDescription"}}</i>
-  {{/if}}
-  <p class="card-text">
-    <small class="text-muted">
+  <div
+    class="relative border border-gray-300 rounded-xl p-4 hover:border-blue-500"
+  >
+    <a
+      href={{@repository.html_url}}
+      class="text-blue-500 underline after:absolute after:inset-0"
+    >
+      {{@repository.name}}</a>
+    <FaIcon @icon={{faStar}} class="text-yellow-400" />
+    {{@repository.stargazers_count}}
+    {{#if @repository.fork}}
+      <FaIcon @icon={{faCodeFork}} class="text-gray-400" />
+    {{/if}}
+    <br />
+    {{#if @repository.language}}
+      <strong class="text-green-700">
+        {{@repository.language}}
+      </strong>
+    {{/if}}
+    {{#if @repository.description}}
+      {{@repository.description}}
+    {{else}}
+      <i>{{t "noDescription"}}</i>
+    {{/if}}
+    <p class="text-sm text-gray-400">
       {{t "updated"}}
       {{timestamp @repository.pushed_at}}
-    </small>
-  </p>
+    </p>
+  </div>
 </template> satisfies TOC<RepositorySignature>;

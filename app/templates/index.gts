@@ -1,21 +1,15 @@
-import type RouterService from '@ember/routing/router-service';
-import { service } from '@ember/service';
-import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
+import RateLimit from 'charlesfries/components/rate-limit';
 import Repositories from 'charlesfries/components/repositories';
-import Subheading from 'charlesfries/components/subheading';
-import Toolbar from 'charlesfries/components/toolbar';
 import type IndexController from 'charlesfries/controllers/index';
 import type { GitHubRepository } from 'charlesfries/utils/github-types';
-import { t } from 'ember-intl';
 
 interface IndexSignature {
   Args: {
     model: {
       repositories: GitHubRepository[];
-      remainingRequests: string | null;
-      maxRequests: string | null;
+      remainingRequests: number;
+      maxRequests: number;
       resetAt: string;
     };
     controller: IndexController;
@@ -23,8 +17,6 @@ interface IndexSignature {
 }
 
 export default class Index extends Component<IndexSignature> {
-  @service declare router: RouterService;
-
   get repositories(): GitHubRepository[] {
     const { repositories } = this.args.model;
     return repositories.filter(({ fork }) => {
@@ -35,28 +27,12 @@ export default class Index extends Component<IndexSignature> {
     });
   }
 
-  refresh = () => {
-    this.router.refresh();
-  };
-
   <template>
-    <Subheading />
-    <div class="d-flex align-items-center gap-2 mb-3">
-      <Toolbar @sort={{@controller.sort}} @onRefresh={{this.refresh}} />
-      <FaIcon
-        @icon={{faInfoCircle}}
-        data-bs-toggle="tooltip"
-        data-bs-title="{{@model.remainingRequests}}/{{@model.maxRequests}} requests remaining (resets at {{@model.resetAt}})"
-        class="text-secondary"
-      />
-    </div>
+    <RateLimit
+      @remaining={{@model.remainingRequests}}
+      @max={{@model.maxRequests}}
+      @resetAt={{@model.resetAt}}
+    />
     <Repositories @repositories={{this.repositories}} />
-    <a
-      class="btn btn-outline-primary"
-      href="https://github.com/charlesfries"
-      role="button"
-    >
-      {{t "more"}}
-    </a>
   </template>
 }

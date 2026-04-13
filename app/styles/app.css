@@ -31,7 +31,3 @@
 .special {
   animation: color-foreground-rotate 2s linear infinite;
 }
-
-.clickable:hover {
-  border-color: var(--bs-primary);
-}

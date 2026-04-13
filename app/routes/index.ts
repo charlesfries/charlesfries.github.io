@@ -9,20 +9,29 @@ export type Type = 'sources' | 'forks';
 const DELAY = 500;
 
 export default class IndexRoute extends Route {
-  queryParams = {
-    sort: { refreshModel: true },
-    direction: { refreshModel: true },
-    type: { refreshModel: false },
-  };
+  // queryParams = {
+  //   sort: { refreshModel: true },
+  //   direction: { refreshModel: true },
+  //   type: { refreshModel: false },
+  // };
 
-  async model({
-    sort,
-    direction,
-  }: {
-    sort: Sort;
-    direction: Direction;
-    type?: Type;
-  }) {
+  async model() {
+    // {
+    //   // sort,
+    //   // direction,
+    // }: {
+    //   sort: Sort;
+    //   direction: Direction;
+    //   type?: Type;
+    // },
+    const { sort, direction } = this.paramsFor('application') as {
+      sort: Sort;
+      direction: Direction;
+      type?: Type;
+    };
+
+    console.log('index', sort, direction);
+
     await sleep(DELAY);
 
     const url = new URL('https://api.github.com/users/charlesfries/repos');
@@ -48,8 +57,8 @@ export default class IndexRoute extends Route {
 
     return {
       repositories,
-      remainingRequests,
-      maxRequests,
+      remainingRequests: Number(remainingRequests),
+      maxRequests: Number(maxRequests),
       resetAt: new Date(Number(resetAt) * 1000).toLocaleTimeString(),
     };
   }

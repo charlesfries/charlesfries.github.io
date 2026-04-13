@@ -15,7 +15,7 @@ export default class Locale extends Component {
     {{! template-lint-disable no-bare-strings  }}
 
     <select
-      class="form-select w-auto mb-3"
+      class="bg-gray-200 font-semibold rounded-lg px-3 py-2 mb-4"
       aria-label={{t "locale"}}
       {{on "change" this.setLocale}}
     >

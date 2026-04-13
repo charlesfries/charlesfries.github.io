@@ -1,9 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
-import type { Repository as _Repository } from 'charlesfries/routes/index';
+import type { GitHubRepository } from 'charlesfries/utils/github';
 import Repository from './repository';
 
 export interface RepositoriesSignature {
-  repositories: _Repository[];
+  repositories: GitHubRepository[];
 }
 
 <template>

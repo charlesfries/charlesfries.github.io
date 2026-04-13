@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import type { GitHubRepository } from 'charlesfries/utils/github';
 import sleep from 'charlesfries/utils/sleep';
 
 export type Sort = 'created' | 'updated' | 'pushed' | 'full_name';
@@ -11,10 +12,6 @@ interface Params extends Record<string, unknown> {
   type?: Type;
 }
 
-export interface Repository {
-  fork: boolean;
-}
-
 const DELAY = 500;
 
 export default class IndexRoute extends Route {
@@ -24,7 +21,7 @@ export default class IndexRoute extends Route {
     type: { refreshModel: false },
   };
 
-  async model({ sort, direction }: Params): Promise<Repository[]> {
+  async model({ sort, direction }: Params): Promise<GitHubRepository[]> {
     await sleep(DELAY);
 
     const url = new URL('https://api.github.com/users/charlesfries/repos');
@@ -41,7 +38,7 @@ export default class IndexRoute extends Route {
       throw new Error('not ok');
     }
 
-    const repositories = (await response.json()) as Repository[];
+    const repositories = (await response.json()) as GitHubRepository[];
 
     return repositories;
   }

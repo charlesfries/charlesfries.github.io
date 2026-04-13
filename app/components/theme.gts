@@ -7,20 +7,41 @@ import { tracked } from '@glimmer/tracking';
 
 type _Theme = 'light' | 'dark';
 
+const LOCAL_STORAGE_KEY = 'theme';
+
 export default class Theme extends Component {
   mediaQuery = matchMedia('(prefers-color-scheme: dark)');
 
-  @tracked userTheme = localStorage.getItem('theme') as _Theme | null;
+  @tracked userTheme = localStorage.getItem(LOCAL_STORAGE_KEY) as _Theme | null;
 
   constructor(owner: Owner, args: never) {
     super(owner, args);
 
     this.apply();
 
-    this.mediaQuery.addEventListener('change', () => {
-      this.apply();
-    });
+    this.mediaQuery.addEventListener('change', this.handleMediaChange);
+    addEventListener('storage', this.handleStorageChange);
   }
+
+  willDestroy() {
+    super.willDestroy();
+
+    this.mediaQuery.removeEventListener('change', this.handleMediaChange);
+    removeEventListener('storage', this.handleStorageChange);
+  }
+
+  handleMediaChange = () => {
+    if (!this.userTheme) {
+      this.apply();
+    }
+  };
+
+  handleStorageChange = (event: StorageEvent) => {
+    if (event.key === LOCAL_STORAGE_KEY) {
+      this.userTheme = event.newValue as _Theme | null;
+      this.apply();
+    }
+  };
 
   get systemTheme() {
     return (this.mediaQuery.matches ? 'dark' : 'light') as _Theme;
@@ -35,19 +56,20 @@ export default class Theme extends Component {
 
   toggle = () => {
     this.userTheme = this.isDark ? 'light' : 'dark';
-    localStorage.setItem('theme', this.userTheme);
+    localStorage.setItem(LOCAL_STORAGE_KEY, this.userTheme);
 
     this.apply();
   };
 
   apply = () => {
     const root = document.documentElement;
+    const isDark = this.isDark;
 
-    if (this.isDark) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
+    if (isDark === root.classList.contains('dark')) {
+      return;
     }
+
+    root.classList.toggle('dark', isDark);
   };
 
   <template>

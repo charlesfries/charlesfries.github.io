@@ -29,7 +29,7 @@ export default class ApplicationRoute extends Route {
 
   async model() {
     const { content } = await this.store.requestManager.request({
-      url: '/api/get-token?name=WHAT',
+      url: '/api/v1/auth-login?name=WHAT',
     });
     console.log(content);
   }

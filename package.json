@@ -113,5 +113,9 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@netlify/functions": "^5.2.0",
+    "@types/node": "^22.19.17"
   }
 }

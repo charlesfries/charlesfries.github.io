@@ -1,6 +1,5 @@
 name: Charles Fries
 description: Je m'appelle {name}. Je suis <strong>Ingénieur logiciel principal</strong> chez <strong>Trusted American Insurance</strong>. Auparavant, j'étais <strong>développeur d'applications Web</strong> chez <strong>McMillan Study Guides</strong>. J'adore travailler sur OSS et penser à l'expérience des développeurs. Vous pouvez me trouver sur GitHub, LinkedIn, Twitter, Instagram ou me joindre par e-mail.
-projects: Projets
 locale: Lieu
 refresh: Rafraîchir
 sort:
@@ -14,6 +13,7 @@ type:
   all: Toute
   sources: Sources
   forks: Fourchettes
+requests: "{remaining}/{max} requests remaining (resets at {resetAt})" # TODO
 noDescription: Pas de description
 updated: Actualisé
 more: En savoir plus sur GitHub

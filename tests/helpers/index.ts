@@ -10,7 +10,7 @@ import { setupIntl } from 'ember-intl/test-support';
 // test setup functions. This way, you can easily extend the setup that is
 // needed per test type.
 
-function setupApplicationTest(hooks: NestedHooks, options: SetupTestOptions) {
+function setupApplicationTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupApplicationTest(hooks, options);
 
   // Additional setup for application tests can be done here.

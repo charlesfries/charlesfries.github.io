@@ -1,14 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Subheading from 'charlesfries/components/subheading';
+import Theme from 'charlesfries/components/theme';
 
-module('Integration | Component | subheading', function (hooks) {
+module('Integration | Component | theme', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><Subheading /></template>);
+    await render(<template><Theme /></template>);
 
-    assert.dom('h2').exists();
+    assert.dom().hasText('');
   });
 });

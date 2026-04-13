@@ -1,14 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Placeholder from 'charlesfries/components/placeholder';
+import Socials from 'charlesfries/components/socials';
 
-module('Integration | Component | placeholder', function (hooks) {
+module('Integration | Component | socials', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><Placeholder /></template>);
+    await render(<template><Socials /></template>);
 
-    assert.dom('div').exists();
+    assert.dom('a').exists({ count: 6 });
   });
 });

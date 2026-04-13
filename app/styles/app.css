@@ -1,5 +1,9 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @keyframes color-foreground-rotate {
   0% {
     color: #3556e3;
@@ -28,8 +32,4 @@
 
 .special {
   animation: color-foreground-rotate 2s linear infinite;
-}
-
-.clickable:hover {
-  border-color: var(--bs-primary);
 }

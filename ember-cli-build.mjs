@@ -21,7 +21,5 @@ export default async function (defaults) {
     },
   });
 
-  app.import('node_modules/bootstrap/dist/css/bootstrap.css');
-
   return compatBuild(app, buildOnce);
 }

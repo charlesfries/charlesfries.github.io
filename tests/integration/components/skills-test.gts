@@ -9,7 +9,6 @@ module('Integration | Component | skills', function (hooks) {
   test('it renders', async function (assert) {
     await render(<template><Skills /></template>);
 
-    assert.dom('p').exists();
-    assert.dom('img').exists();
+    assert.dom('img').exists({ count: 26 });
   });
 });

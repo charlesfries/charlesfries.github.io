@@ -8,104 +8,85 @@ import {
   faSortAmountDown,
   faSortAmountUp,
 } from '@fortawesome/free-solid-svg-icons';
-import type { Sort } from 'charlesfries/routes/index';
 import { t } from 'ember-intl';
-import { eq } from 'ember-truth-helpers';
 
-const noop = () => {};
+export const BUTTON_CLASS_NAME =
+  'bg-white border border-gray-300 dark:border-gray-600 hover:bg-gray-100 [&.active]:bg-gray-200 active:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:[&.active]:bg-gray-600 dark:active:bg-gray-500 font-semibold px-4 py-2';
 
 export interface ToolbarSignature {
-  sort: Sort;
-  onRefresh?: () => void;
+  onRefresh: () => void;
 }
 
 <template>
-  <div class="btn-toolbar gap-2" role="toolbar">
-    <div class="btn-group" role="group">
-      <button
-        type="button"
-        class="btn btn-dark {{unless @onRefresh 'disabled'}}"
-        aria-label={{t "refresh"}}
-        tabindex={{unless @onRefresh "-1"}}
-        {{on "click" (if @onRefresh @onRefresh noop)}}
+  <div class="flex flex-wrap gap-2 mb-6" role="toolbar">
+    <button
+      type="button"
+      class="{{BUTTON_CLASS_NAME}} rounded-lg cursor-pointer"
+      aria-label={{t "refresh"}}
+      {{on "click" @onRefresh}}
+    >
+      <FaIcon @icon={{faRedo}} />
+    </button>
+    <div class="flex">
+      <LinkTo
+        @query={{hash sort="created"}}
+        class="{{BUTTON_CLASS_NAME}} rounded-l-lg -mr-1"
       >
-        <FaIcon @icon={{faRedo}} role="presentation" />
-      </button>
-    </div>
-    <div class="btn-group" role="group">
-      <button
-        type="button"
-        class="btn btn-dark dropdown-toggle {{unless @onRefresh 'disabled'}}"
-        data-bs-toggle="dropdown"
-        tabindex={{unless @onRefresh "-1"}}
+        {{t "sort.created"}}
+      </LinkTo>
+      <LinkTo
+        @query={{hash sort="updated"}}
+        class="{{BUTTON_CLASS_NAME}} -mr-1"
       >
-        {{#if (eq "created" @sort)}}
-          {{t "sort.created"}}
-        {{else if (eq "updated" @sort)}}
-          {{t "sort.updated"}}
-        {{else if (eq "pushed" @sort)}}
-          {{t "sort.pushed"}}
-        {{else if (eq "full_name" @sort)}}
-          {{t "sort.name"}}
-        {{/if}}
-      </button>
-      <div class="dropdown-menu">
-        <LinkTo @query={{hash sort="created"}} class="dropdown-item">
-          {{t "sort.created"}}
-        </LinkTo>
-        <LinkTo @query={{hash sort="updated"}} class="dropdown-item">
-          {{t "sort.updated"}}
-        </LinkTo>
-        <LinkTo @query={{hash sort="pushed"}} class="dropdown-item">
-          {{t "sort.pushed"}}
-        </LinkTo>
-        <LinkTo @query={{hash sort="full_name"}} class="dropdown-item">
-          {{t "sort.name"}}
-        </LinkTo>
-      </div>
+        {{t "sort.updated"}}
+      </LinkTo>
+      <LinkTo @query={{hash sort="pushed"}} class="{{BUTTON_CLASS_NAME}} -mr-1">
+        {{t "sort.pushed"}}
+      </LinkTo>
+      <LinkTo
+        @query={{hash sort="full_name"}}
+        class="{{BUTTON_CLASS_NAME}} rounded-r-lg"
+      >
+        {{t "sort.name"}}
+      </LinkTo>
     </div>
-    <div class="btn-group" role="group">
+    <div class="flex">
       <LinkTo
         @query={{hash direction="desc"}}
-        class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
+        class="{{BUTTON_CLASS_NAME}} rounded-l-lg -mr-1"
         role="button"
         aria-label={{t "sortDescending"}}
-        tabindex={{unless @onRefresh "-1"}}
       >
         <FaIcon @icon={{faSortAmountDown}} role="presentation" />
       </LinkTo>
       <LinkTo
         @query={{hash direction="asc"}}
-        class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
+        class="{{BUTTON_CLASS_NAME}} rounded-r-lg"
         role="button"
         aria-label={{t "sortAscending"}}
-        tabindex={{unless @onRefresh "-1"}}
       >
         <FaIcon @icon={{faSortAmountUp}} role="presentation" />
       </LinkTo>
     </div>
-    <div class="btn-group" role="group">
+    <div class="flex">
       <LinkTo
-        @query={{hash type=undefined}}
-        class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
+        @query={{hash _type=undefined}}
+        class="{{BUTTON_CLASS_NAME}} rounded-l-lg -mr-1"
         role="button"
-        tabindex={{unless @onRefresh "-1"}}
       >
         {{t "type.all"}}
       </LinkTo>
       <LinkTo
-        @query={{hash type="sources"}}
-        class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
+        @query={{hash _type="sources"}}
+        class="{{BUTTON_CLASS_NAME}} -mr-1"
         role="button"
-        tabindex={{unless @onRefresh "-1"}}
       >
         {{t "type.sources"}}
       </LinkTo>
       <LinkTo
-        @query={{hash type="forks"}}
-        class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
+        @query={{hash _type="forks"}}
+        class="{{BUTTON_CLASS_NAME}} rounded-r-lg"
         role="button"
-        tabindex={{unless @onRefresh "-1"}}
       >
         {{t "type.forks"}}
       </LinkTo>

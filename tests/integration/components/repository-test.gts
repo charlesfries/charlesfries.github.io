@@ -8,12 +8,17 @@ module('Integration | Component | repository', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const repository = {} as GitHubRepository;
+    const repository = {
+      description: 'This is a description.',
+      pushed_at: new Date(2026, 0, 1).toISOString(),
+      stargazers_count: 1,
+      forks_count: 2,
+    } as GitHubRepository;
 
     await render(
       <template><Repository @repository={{repository}} /></template>,
     );
 
-    assert.dom().hasText('No Description Updated Invalid Date NaN');
+    assert.dom().hasText('This is a description. 1 2 Updated on January 2026');
   });
 });

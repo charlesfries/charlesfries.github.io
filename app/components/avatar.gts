@@ -4,6 +4,6 @@ import { t } from 'ember-intl';
   <img
     src="https://avatars.githubusercontent.com/u/2275005?v=4"
     alt={{t "name"}}
-    class="img-fluid rounded-circle"
+    class="rounded-full w-42 mx-auto"
   />
 </template>

@@ -7,7 +7,6 @@ import config from 'charlesfries/config/environment';
 import { importSync, isDevelopingApp, macroCondition } from '@embroider/macros';
 import setupInspector from '@embroider/legacy-inspector-support/ember-source-4.12';
 import mixpanel from 'mixpanel-browser';
-import 'bootstrap';
 
 if (macroCondition(isDevelopingApp())) {
   importSync('./deprecation-workflow');
@@ -22,6 +21,8 @@ export default class App extends Application {
 
 loadInitializers(App, config.modulePrefix, compatModules);
 
-mixpanel.init('f537ea51ddb0c79c7e5f339f832e5267', {
-  debug: 'development' === config.environment,
-});
+const isDevelopment = 'development' === config.environment;
+mixpanel.init('f537ea51ddb0c79c7e5f339f832e5267', { debug: isDevelopment });
+if (isDevelopment) {
+  mixpanel.disable();
+}

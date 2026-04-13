@@ -8,7 +8,7 @@ import {
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 <template>
-  <div class="d-flex gap-3 mb-4">
+  <div class="d-flex gap-2 mb-4">
     <a
       href="https://github.com/charlesfries"
       class="link-dark"

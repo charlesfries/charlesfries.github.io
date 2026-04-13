@@ -1,7 +1,7 @@
 <template>
   {{! template-lint-disable no-bare-strings  }}
 
-  <div class="flex flex-wrap items-start gap-1">
+  <div class="flex flex-wrap justify-center gap-2">
     <img
       width="63"
       height="20"
@@ -80,24 +80,24 @@
       alt="Netlify"
       src="https://img.shields.io/badge/-Netlify-30C8C9?style=flat-square&logo=netlify&logoColor=white"
     />
-    <img
+    {{! <img
       width="67"
       height="20"
       alt="Heroku"
       src="https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white"
-    />
+    /> }}
     <img
       width="151"
       height="20"
       alt="Google Cloud Platform"
       src="https://img.shields.io/badge/-Google_Cloud_Platform-1a73e8?style=flat-square&logo=google-cloud&logoColor=white"
     />
-    <img
+    {{! <img
       width="71"
       height="20"
       alt="VSCode"
       src="https://img.shields.io/badge/-VSCode-0066B8?style=flat-square&logo=visualstudiocode&logoColor=white"
-    />
+    /> }}
     <img
       width="61"
       height="20"

@@ -18,22 +18,27 @@ export interface RepositorySignature {
       class="text-blue-500 underline after:absolute after:inset-0"
     >
       {{@repository.name}}</a>
-    <FaIcon @icon={{faStar}} class="text-yellow-400" />
-    {{@repository.stargazers_count}}
     {{#if @repository.fork}}
-      <FaIcon @icon={{faCodeFork}} class="text-gray-400" />
+      <FaIcon @icon={{faCodeFork}} class="text-gray-300" />
     {{/if}}
-    <br />
-    {{#if @repository.language}}
-      <strong class="text-green-700">
-        {{@repository.language}}
-      </strong>
-    {{/if}}
-    {{#if @repository.description}}
-      {{@repository.description}}
-    {{else}}
-      <i>{{t "noDescription"}}</i>
-    {{/if}}
+    <div class="mt-1">
+      {{#if @repository.description}}
+        {{@repository.description}}
+      {{else}}
+        <i>{{t "noDescription"}}</i>
+      {{/if}}
+    </div>
+    <div class="mt-1">
+      {{#if @repository.language}}
+        <strong class="text-green-700">
+          {{@repository.language}}
+        </strong>
+      {{/if}}
+      <FaIcon @icon={{faStar}} class="text-yellow-400" />
+      <span class="text-gray-500">{{@repository.stargazers_count}}</span>
+      <FaIcon @icon={{faCodeFork}} class="text-gray-300" />
+      <span class="text-gray-500">{{@repository.forks_count}}</span>
+    </div>
     <p class="text-sm text-gray-400 mt-2">
       {{t "updated"}}
       {{timestamp @repository.pushed_at}}

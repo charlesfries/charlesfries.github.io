@@ -10,7 +10,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { t } from 'ember-intl';
 
 <template>
-  <div class="text-2xl flex gap-3 mb-6">
+  <div class="text-2xl flex gap-3 mx-auto">
     <a href="https://github.com/charlesfries" aria-label={{t "contact.github"}}>
       <FaIcon @icon={{faGithub}} />
     </a>

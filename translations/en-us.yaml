@@ -14,8 +14,8 @@ type:
   sources: Sources
   forks: Forks
 requests: "{remaining} of {max} requests remaining (resets at {resetAt})"
-noDescription: No Description
-updated: Updated
+noDescription: No description
+updated: Updated on
 more: View more on GitHub
 error: Couldn't fetch GitHub repositories!
 contact:

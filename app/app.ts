@@ -22,5 +22,5 @@ export default class App extends Application {
 loadInitializers(App, config.modulePrefix, compatModules);
 
 mixpanel.init('f537ea51ddb0c79c7e5f339f832e5267', {
-  debug: 'development' === config.environment,
+  debug: false, // 'development' === config.environment,
 });

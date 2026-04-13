@@ -5,7 +5,7 @@ export type Sort = 'created' | 'updated' | 'pushed' | 'full_name';
 export type Direction = 'asc' | 'desc';
 export type Type = 'sources' | 'forks';
 
-interface Params {
+interface Params extends Record<string, unknown> {
   sort: Sort;
   direction: Direction;
   type?: Type;
@@ -41,7 +41,7 @@ export default class IndexRoute extends Route {
       throw new Error('not ok');
     }
 
-    const repositories = await response.json();
+    const repositories = (await response.json()) as Repository[];
 
     return repositories;
   }

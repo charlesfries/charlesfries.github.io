@@ -10,6 +10,6 @@ module('Unit | Controller | index', function (hooks) {
     const controller = this.owner.lookup('controller:index') as IndexController;
     assert.ok(controller);
 
-    assert.ok(controller.refresh);
+    assert.ok('refresh' in controller);
   });
 });

@@ -32,7 +32,7 @@ function setupApplicationTest(hooks: NestedHooks, options: SetupTestOptions) {
 function setupRenderingTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupRenderingTest(hooks, options);
 
-  setupIntl(hooks);
+  setupIntl(hooks, 'en-us');
 
   // Additional setup for rendering tests can be done here.
 }

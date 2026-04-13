@@ -9,6 +9,7 @@ import Description from 'charlesfries/components/description';
 import Heading from 'charlesfries/components/heading';
 import Locale from 'charlesfries/components/locale';
 import Skills from 'charlesfries/components/skills';
+import Theme from 'charlesfries/components/theme';
 import Toolbar from 'charlesfries/components/toolbar';
 import { t } from 'ember-intl';
 
@@ -24,7 +25,10 @@ export default class Application extends Component {
       <header class="grid grid-cols-4 mb-12">
         <div class="col-span-2">
           <Heading />
-          <Locale />
+          <div class="flex gap-2 mb-4">
+            <Locale />
+            <Theme />
+          </div>
           <Description />
           <Contact />
           <Skills />

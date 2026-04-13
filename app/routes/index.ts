@@ -34,6 +34,7 @@ export default class IndexRoute extends Route {
       url.searchParams.append('direction', direction);
     }
 
+    // eslint-disable-next-line warp-drive/no-external-request-patterns
     const response = await fetch(url.href);
     if (!response.ok) {
       throw new Error('not ok');

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Helper | timestamp', function (hooks) {
   setupRenderingTest(hooks);

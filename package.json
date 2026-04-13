@@ -64,6 +64,7 @@
     "@popperjs/core": "^2.11.7",
     "@rollup/plugin-babel": "^6.1.0",
     "@types/bootstrap": "^5.2.10",
+    "@types/htmlbars-inline-precompile": "^3.0.4",
     "@types/mixpanel-browser": "^2.38.1",
     "@types/qunit": "^2.19.13",
     "@types/rsvp": "^4.0.9",

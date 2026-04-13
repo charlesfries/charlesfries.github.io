@@ -3,29 +3,51 @@ import type Owner from '@ember/owner';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+
+type _Theme = 'light' | 'dark';
 
 export default class Theme extends Component {
+  mediaQuery = matchMedia('(prefers-color-scheme: dark)');
+
+  @tracked userTheme = localStorage.getItem('theme') as _Theme | null;
+
   constructor(owner: Owner, args: never) {
     super(owner, args);
 
-    if (this.isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    this.apply();
+
+    this.mediaQuery.addEventListener('change', () => {
+      this.apply();
+    });
+  }
+
+  get systemTheme() {
+    return (this.mediaQuery.matches ? 'dark' : 'light') as _Theme;
   }
 
   get isDark() {
-    const storedTheme = localStorage.getItem('theme');
-    const isSystemDark = matchMedia('(prefers-color-scheme: dark)').matches;
-
-    return storedTheme === 'dark' || (!storedTheme && isSystemDark);
+    if (this.userTheme) {
+      return this.userTheme === 'dark';
+    }
+    return this.systemTheme === 'dark';
   }
 
   toggle = () => {
-    const isDark = document.documentElement.classList.toggle('dark');
+    this.userTheme = this.isDark ? 'light' : 'dark';
+    localStorage.setItem('theme', this.userTheme);
 
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    this.apply();
+  };
+
+  apply = () => {
+    const root = document.documentElement;
+
+    if (this.isDark) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
   };
 
   <template>

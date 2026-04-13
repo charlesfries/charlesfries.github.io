@@ -1,4 +1,6 @@
 <template>
+  {{! template-lint-disable no-bare-strings  }}
+
   <p>
     <img
       width="63"

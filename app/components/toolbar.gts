@@ -25,7 +25,7 @@ export interface ToolbarSignature {
       <button
         type="button"
         class="btn btn-dark {{unless @onRefresh 'disabled'}}"
-        aria-label="Refresh"
+        aria-label={{t "toolbar.refresh"}}
         tabindex={{unless @onRefresh "-1"}}
         {{on "click" (if @onRefresh @onRefresh noop)}}
       >
@@ -69,7 +69,7 @@ export interface ToolbarSignature {
         @query={{hash direction="desc"}}
         class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
         role="button"
-        aria-label="Sort descending"
+        aria-label={{t "toolbar.sortDescending"}}
         tabindex={{unless @onRefresh "-1"}}
       >
         <FaIcon @icon={{faSortAmountDown}} role="presentation" />
@@ -78,7 +78,7 @@ export interface ToolbarSignature {
         @query={{hash direction="asc"}}
         class="btn btn-outline-dark {{unless @onRefresh 'disabled'}}"
         role="button"
-        aria-label="Sort ascending"
+        aria-label={{t "toolbar.sortAscending"}}
         tabindex={{unless @onRefresh "-1"}}
       >
         <FaIcon @icon={{faSortAmountUp}} role="presentation" />

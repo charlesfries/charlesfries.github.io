@@ -1,15 +1,16 @@
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import {
+  faBluesky,
   faGithub,
   faInstagram,
   faLinkedin,
-  faTwitter,
+  faXTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { t } from 'ember-intl';
 
 <template>
-  <div class="d-flex gap-2 mb-4">
+  <div class="d-flex gap-3 mb-4">
     <a
       href="https://github.com/charlesfries"
       class="link-dark"
@@ -29,7 +30,14 @@ import { t } from 'ember-intl';
       class="link-dark"
       aria-label={{t "contact.x"}}
     >
-      <FaIcon @icon={{faTwitter}} @size="xl" />
+      <FaIcon @icon={{faXTwitter}} @size="xl" />
+    </a>
+    <a
+      href="https://bsky.app/profile/charlesfries.com"
+      class="link-dark"
+      aria-label={{t "contact.bluesky"}}
+    >
+      <FaIcon @icon={{faBluesky}} @size="xl" />
     </a>
     <a
       href="https://www.instagram.com/charlesfries"

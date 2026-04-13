@@ -2,7 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import { faCodeFork, faStar } from '@fortawesome/free-solid-svg-icons';
 import timestamp from 'charlesfries/helpers/timestamp';
-import type { GitHubRepository } from 'charlesfries/utils/github';
+import type { GitHubRepository } from 'charlesfries/utils/github-types';
 import { t } from 'ember-intl';
 
 export interface RepositorySignature {

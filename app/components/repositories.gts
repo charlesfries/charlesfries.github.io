@@ -1,5 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
-import type { GitHubRepository } from 'charlesfries/utils/github';
+import type { GitHubRepository } from 'charlesfries/utils/github-types';
 import Repository from './repository';
 
 export interface RepositoriesSignature {

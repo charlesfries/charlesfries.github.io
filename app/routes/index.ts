@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import type { GitHubRepository } from 'charlesfries/utils/github';
+import type { GitHubRepository } from 'charlesfries/utils/github-types';
 import sleep from 'charlesfries/utils/sleep';
 
 export type Sort = 'created' | 'updated' | 'pushed' | 'full_name';

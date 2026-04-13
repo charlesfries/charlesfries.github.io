@@ -5,7 +5,7 @@ import Repositories from 'charlesfries/components/repositories';
 import Subheading from 'charlesfries/components/subheading';
 import Toolbar from 'charlesfries/components/toolbar';
 import type IndexController from 'charlesfries/controllers/index';
-import type { GitHubRepository } from 'charlesfries/utils/github';
+import type { GitHubRepository } from 'charlesfries/utils/github-types';
 import { t } from 'ember-intl';
 
 interface IndexSignature {

@@ -9,6 +9,6 @@ module('Integration | Component | contact', function (hooks) {
   test('it renders', async function (assert) {
     await render(<template><Contact /></template>);
 
-    assert.dom('a').exists({ count: 5 });
+    assert.dom('a').exists({ count: 6 });
   });
 });

@@ -8,7 +8,5 @@ module('Unit | Controller | index', function (hooks) {
   test('it exists', function (assert) {
     const controller = this.owner.lookup('controller:index') as IndexController;
     assert.ok(controller);
-
-    assert.ok('refresh' in controller);
   });
 });

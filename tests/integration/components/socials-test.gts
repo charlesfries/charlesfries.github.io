@@ -1,13 +1,13 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Contact from 'charlesfries/components/contact';
+import Socials from 'charlesfries/components/socials';
 
-module('Integration | Component | contact', function (hooks) {
+module('Integration | Component | socials', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><Contact /></template>);
+    await render(<template><Socials /></template>);
 
     assert.dom('a').exists({ count: 6 });
   });

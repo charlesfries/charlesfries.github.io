@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-white border border-gray-300 rounded-xl p-4">
+  <div
+    class="bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded-xl p-4"
+  >
     <div class="flex animate-pulse space-x-4">
       <div class="size-10 rounded-full bg-gray-200"></div>
       <div class="flex-1 space-y-6 py-1">

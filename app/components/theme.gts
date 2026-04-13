@@ -4,6 +4,7 @@ import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { BUTTON_CLASS_NAME } from './toolbar';
 
 type _Theme = 'light' | 'dark';
 
@@ -75,7 +76,7 @@ export default class Theme extends Component {
   <template>
     <button
       type="button"
-      class="bg-white border border-gray-300 hover:bg-gray-100 [&.active]:bg-gray-200 active:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:[&.active]:bg-gray-600 dark:active:bg-gray-500 font-semibold px-4 py-2 rounded-lg cursor-pointer"
+      class="{{BUTTON_CLASS_NAME}} rounded-lg cursor-pointer"
       {{on "click" this.toggle}}
     >
       <FaIcon @icon={{if this.isDark faMoon faSun}} />

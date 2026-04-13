@@ -24,7 +24,7 @@ export interface RateLimitSignature {
 
 <template>
   <div
-    class="text-right text-gray-400
+    class="text-sm text-right text-gray-400
       {{if (runningLow @remaining @max) 'text-red-500' 'text-gray-400'}}
       mb-6"
   >

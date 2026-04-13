@@ -4,14 +4,29 @@ import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import Avatar from 'charlesfries/components/avatar';
-import Contact from 'charlesfries/components/contact';
 import Description from 'charlesfries/components/description';
 import Heading from 'charlesfries/components/heading';
 import Locale from 'charlesfries/components/locale';
 import Skills from 'charlesfries/components/skills';
+import Socials from 'charlesfries/components/socials';
 import Theme from 'charlesfries/components/theme';
 import Toolbar from 'charlesfries/components/toolbar';
 import { t } from 'ember-intl';
+
+const MoreButton = <template>
+  <a
+    class="bg-blue-700 hover:bg-blue-900 text-white font-semibold px-3 py-2 rounded-lg"
+    href="https://github.com/charlesfries"
+    role="button"
+  >
+    <FaIcon
+      @icon={{faArrowUpRightFromSquare}}
+      class="mr-1"
+      role="presentation"
+    />
+    {{t "more"}}
+  </a>
+</template>;
 
 export default class Application extends Component {
   @service declare router: RouterService;
@@ -22,8 +37,8 @@ export default class Application extends Component {
 
   <template>
     <div class="container mx-auto px-4 py-12">
-      <header class="mb-20">
-        <div class="flex flex-col gap-6 max-w-lg mx-auto text-center">
+      <header class="mb-12">
+        <div class="flex flex-col gap-8 max-w-lg mx-auto text-center">
           <Avatar />
           <Heading />
           <div class="flex gap-2 mx-auto">
@@ -31,7 +46,7 @@ export default class Application extends Component {
             <Theme />
           </div>
           <Description />
-          <Contact />
+          <Socials />
           <Skills />
         </div>
       </header>
@@ -39,18 +54,7 @@ export default class Application extends Component {
         <Toolbar @onRefresh={{this.refresh}} />
         {{outlet}}
         <div class="flex justify-center pt-6">
-          <a
-            class="bg-blue-700 hover:bg-blue-900 text-white font-semibold px-3 py-2 rounded-lg"
-            href="https://github.com/charlesfries"
-            role="button"
-          >
-            <FaIcon
-              @icon={{faArrowUpRightFromSquare}}
-              class="mr-1"
-              role="presentation"
-            />
-            {{t "more"}}
-          </a>
+          <MoreButton />
         </div>
       </main>
       <footer

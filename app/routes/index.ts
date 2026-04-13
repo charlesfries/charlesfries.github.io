@@ -21,32 +21,40 @@ export default class IndexRoute extends Route {
 
     await sleep(DELAY);
 
-    const url = new URL('https://api.github.com/users/charlesfries/repos');
-
-    if (sort) {
-      url.searchParams.append('sort', sort);
-    }
-    if (direction) {
-      url.searchParams.append('direction', direction);
-    }
-
-    const { response, content } = await this.store.requestManager.request<
+    const { content } = await this.store.requestManager.request<
       GitHubRepository[]
-    >({ url: url.href });
+    >({
+      url: '/api/v1/repositories',
+      method: 'POST',
+    });
+    console.log(content);
 
-    const remainingRequests = response?.headers.get('X-RateLimit-Remaining');
-    const maxRequests = response?.headers.get('X-RateLimit-Limit');
-    const resetAt = response?.headers.get('X-RateLimit-Reset');
+    // const url = new URL('https://api.github.com/users/charlesfries/repos');
+
+    // if (sort) {
+    //   url.searchParams.append('sort', sort);
+    // }
+    // if (direction) {
+    //   url.searchParams.append('direction', direction);
+    // }
+
+    // const { response, content } = await this.store.requestManager.request<
+    //   GitHubRepository[]
+    // >({ url: url.href });
+
+    // const remainingRequests = response?.headers.get('X-RateLimit-Remaining');
+    // const maxRequests = response?.headers.get('X-RateLimit-Limit');
+    // const resetAt = response?.headers.get('X-RateLimit-Reset');
 
     return {
       repositories: content,
-      remainingRequests:
-        typeof remainingRequests === 'string'
-          ? Number(remainingRequests)
-          : null,
-      maxRequests: typeof maxRequests === 'string' ? Number(maxRequests) : null,
-      resetAt:
-        typeof resetAt === 'string' ? new Date(Number(resetAt) * 1000) : null,
+      // remainingRequests:
+      //   typeof remainingRequests === 'string'
+      //     ? Number(remainingRequests)
+      //     : null,
+      // maxRequests: typeof maxRequests === 'string' ? Number(maxRequests) : null,
+      // resetAt:
+      //   typeof resetAt === 'string' ? new Date(Number(resetAt) * 1000) : null,
     };
   }
 }

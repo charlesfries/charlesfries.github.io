@@ -20,7 +20,8 @@ export default (request: Request, context: Context) => {
       },
     );
   } catch (error) {
-    return new Response((error as Error).toString(), {
+    console.error(error);
+    return new Response('Error', {
       status: 500,
     });
   }

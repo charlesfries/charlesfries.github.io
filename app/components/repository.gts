@@ -14,11 +14,11 @@ export interface RepositorySignature {
     class="relative bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded-xl p-4 hover:border-blue-500 hover:shadow transition-all duration-300"
   >
     <a
-      href={{@repository.html_url}}
+      href={{@repository.url}}
       class="text-blue-500 underline after:absolute after:inset-0"
     >
       {{@repository.name}}</a>
-    {{#if @repository.fork}}
+    {{#if @repository.isFork}}
       <FaIcon @icon={{faCodeFork}} class="text-gray-300" />
     {{/if}}
     <div class="mt-1">
@@ -29,19 +29,19 @@ export interface RepositorySignature {
       {{/if}}
     </div>
     <div class="mt-1">
-      {{#if @repository.language}}
+      {{#if @repository.primaryLanguage.name}}
         <strong class="text-green-700">
-          {{@repository.language}}
+          {{@repository.primaryLanguage.name}}
         </strong>
       {{/if}}
       <FaIcon @icon={{faStar}} class="text-yellow-400" />
-      <span class="text-gray-500">{{@repository.stargazers_count}}</span>
+      <span class="text-gray-500">{{@repository.stargazerCount}}</span>
       <FaIcon @icon={{faCodeFork}} class="text-gray-300" />
-      <span class="text-gray-500">{{@repository.forks_count}}</span>
+      <span class="text-gray-500">{{@repository.forkCount}}</span>
     </div>
     <p class="text-sm text-gray-400 mt-2">
       {{t "updated"}}
-      {{timestamp @repository.pushed_at}}
+      {{timestamp @repository.pushedAt}}
     </p>
   </div>
 </template> satisfies TOC<RepositorySignature>;

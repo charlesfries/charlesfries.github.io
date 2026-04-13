@@ -8,11 +8,9 @@ import {
   faSortAmountDown,
   faSortAmountUp,
 } from '@fortawesome/free-solid-svg-icons';
-import type { Sort } from 'charlesfries/routes/index';
 import { t } from 'ember-intl';
 
 export interface ToolbarSignature {
-  sort: Sort;
   onRefresh: () => void;
 }
 

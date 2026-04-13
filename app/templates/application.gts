@@ -1,25 +1,18 @@
+import type RouterService from '@ember/routing/router-service';
+import { service } from '@ember/service';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import Component from '@glimmer/component';
 import Avatar from 'charlesfries/components/avatar';
 import Contact from 'charlesfries/components/contact';
 import Description from 'charlesfries/components/description';
 import Heading from 'charlesfries/components/heading';
 import Locale from 'charlesfries/components/locale';
 import Skills from 'charlesfries/components/skills';
-import { t } from 'ember-intl';
 import Toolbar from 'charlesfries/components/toolbar';
-import Component from '@glimmer/component';
-import type RouterService from '@ember/routing/router-service';
-import { service } from '@ember/service';
-import type ApplicationController from 'charlesfries/controllers/application';
+import { t } from 'ember-intl';
 
-interface ApplicationSignature {
-  Args: {
-    controller: ApplicationController;
-  };
-}
-
-export default class Application extends Component<ApplicationSignature> {
+export default class Application extends Component {
   @service declare router: RouterService;
 
   refresh = () => {
@@ -40,7 +33,7 @@ export default class Application extends Component<ApplicationSignature> {
           <Avatar />
         </div>
       </header>
-      <Toolbar @sort={{@controller.sort}} @onRefresh={{this.refresh}} />
+      <Toolbar @onRefresh={{this.refresh}} />
       {{outlet}}
       <footer class="flex pt-6">
         <a

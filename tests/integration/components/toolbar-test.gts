@@ -9,9 +9,7 @@ module('Integration | Component | toolbar', function (hooks) {
   test('it renders', async function (assert) {
     const refresh = () => {};
 
-    await render(
-      <template><Toolbar @sort="pushed" @onRefresh={{refresh}} /></template>,
-    );
+    await render(<template><Toolbar @onRefresh={{refresh}} /></template>);
 
     assert
       .dom()

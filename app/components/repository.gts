@@ -1,3 +1,13 @@
+import type { TOC } from '@ember/component/template-only';
+import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
+import timestamp from 'charlesfries/helpers/timestamp';
+import type { Repository } from 'charlesfries/routes/index';
+import { t } from 'ember-intl';
+
+export interface RepositorySignature {
+  repository: Repository;
+}
+
 <template>
   <a href={{@repository.html_url}} class="stretched-link">
     {{@repository.name}}</a>
@@ -23,4 +33,4 @@
       {{timestamp @repository.pushed_at}}
     </small>
   </p>
-</template>
+</template> satisfies TOC<RepositorySignature>;

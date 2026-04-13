@@ -1,14 +1,15 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import Skills from 'charlesfries/components/skills';
 
-module('Integration | Component | contact', function (hooks) {
+module('Integration | Component | skills', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Contact />`);
+    await render(<template><Skills /></template>);
 
-    assert.dom('a').exists({ count: 5 });
+    assert.dom('p').exists();
+    assert.dom('img').exists();
   });
 });

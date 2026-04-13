@@ -75,7 +75,7 @@ export default class Theme extends Component {
   <template>
     <button
       type="button"
-      class="bg-gray-200 hover:bg-gray-300 active:bg-gray-400 font-semibold px-3 py-2 rounded-lg cursor-pointer"
+      class="bg-white border border-gray-300 hover:bg-gray-100 [&.active]:bg-gray-200 active:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:[&.active]:bg-gray-600 dark:active:bg-gray-500 font-semibold px-4 py-2 rounded-lg cursor-pointer"
       {{on "click" this.toggle}}
     >
       <FaIcon @icon={{if this.isDark faMoon faSun}} />

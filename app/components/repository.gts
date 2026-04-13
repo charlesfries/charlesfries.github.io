@@ -11,7 +11,7 @@ export interface RepositorySignature {
 
 <template>
   <div
-    class="bg-white relative border border-gray-300 rounded-xl p-4 hover:border-blue-500 hover:shadow transition-all duration-300"
+    class="bg-white dark:bg-black relative border border-gray-300 rounded-xl p-4 hover:border-blue-500 hover:shadow transition-all duration-300"
   >
     <a
       href={{@repository.html_url}}
@@ -34,7 +34,7 @@ export interface RepositorySignature {
     {{else}}
       <i>{{t "noDescription"}}</i>
     {{/if}}
-    <p class="text-sm text-gray-400">
+    <p class="text-sm text-gray-400 mt-2">
       {{t "updated"}}
       {{timestamp @repository.pushed_at}}
     </p>

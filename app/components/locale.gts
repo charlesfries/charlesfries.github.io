@@ -15,7 +15,7 @@ export default class Locale extends Component {
     {{! template-lint-disable no-bare-strings  }}
 
     <select
-      class="bg-gray-200 font-semibold rounded-lg px-3 py-2"
+      class="bg-white border border-gray-300 hover:bg-gray-100 [&.active]:bg-gray-200 active:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:[&.active]:bg-gray-600 dark:active:bg-gray-500 font-semibold px-4 py-2 rounded-lg"
       aria-label={{t "locale"}}
       {{on "change" this.setLocale}}
     >

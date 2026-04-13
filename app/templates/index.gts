@@ -3,18 +3,12 @@ import { service } from '@ember/service';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
-import { Tooltip } from 'bootstrap';
 import Repositories from 'charlesfries/components/repositories';
 import Subheading from 'charlesfries/components/subheading';
 import Toolbar from 'charlesfries/components/toolbar';
 import type IndexController from 'charlesfries/controllers/index';
 import type { GitHubRepository } from 'charlesfries/utils/github-types';
 import { t } from 'ember-intl';
-import { modifier } from 'ember-modifier';
-
-const tooltip = modifier((element) => {
-  new Tooltip(element);
-});
 
 interface IndexSignature {
   Args: {
@@ -54,7 +48,6 @@ export default class Index extends Component<IndexSignature> {
         data-bs-toggle="tooltip"
         data-bs-title="{{@model.remainingRequests}}/{{@model.maxRequests}} requests remaining (resets at {{@model.resetAt}})"
         class="text-secondary"
-        {{tooltip}}
       />
     </div>
     <Repositories @repositories={{this.repositories}} />

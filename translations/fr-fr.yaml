@@ -13,7 +13,7 @@ type:
   all: Toute
   sources: Sources
   forks: Fourchettes
-requests: "{remaining}/{max} requests remaining (resets at {resetAt})" # TODO
+requests: "{remaining} of {max} requests remaining (resets at {resetAt})" # TODO
 noDescription: Pas de description
 updated: Actualisé
 more: En savoir plus sur GitHub

@@ -13,7 +13,7 @@ type:
   all: Todas
   sources: Fuentes
   forks: Tenedoras
-requests: "{remaining}/{max} requests remaining (resets at {resetAt})" # TODO
+requests: "{remaining} of {max} requests remaining (resets at {resetAt})" # TODO
 noDescription: Sin Descripción
 updated: Actualizada
 more: Más en GitHub

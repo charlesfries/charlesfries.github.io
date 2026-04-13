@@ -11,7 +11,7 @@ export interface RepositorySignature {
 
 <template>
   <div
-    class="relative border border-gray-300 rounded-xl p-4 hover:border-blue-500"
+    class="bg-white relative border border-gray-300 rounded-xl p-4 hover:border-blue-500 hover:shadow transition-all duration-300"
   >
     <a
       href={{@repository.html_url}}

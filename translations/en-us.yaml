@@ -13,7 +13,7 @@ type:
   all: All
   sources: Sources
   forks: Forks
-requests: "{remaining}/{max} requests remaining (resets at {resetAt})"
+requests: "{remaining} of {max} requests remaining (resets at {resetAt})"
 noDescription: No Description
 updated: Updated
 more: View more on GitHub

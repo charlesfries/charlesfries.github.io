@@ -36,7 +36,9 @@ export default class Index extends Component<IndexSignature> {
     />
     <Grid>
       {{#each this.repositories as |repository|}}
-        <Repository @repository={{repository}} />
+        <div>
+          <Repository @repository={{repository}} />
+        </div>
       {{/each}}
     </Grid>
   </template>

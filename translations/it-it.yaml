@@ -13,7 +13,7 @@ type:
   all: Tutte
   sources: Fonti
   forks: Forchette
-requests: "{remaining}/{max} requests remaining (resets at {resetAt})" # TODO
+requests: "{remaining} of {max} requests remaining (resets at {resetAt})" # TODO
 noDescription: Nessuna descrizione
 updated: Aggiornata
 more: Altro su GitHub

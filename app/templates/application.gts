@@ -1,10 +1,7 @@
 import type RouterService from '@ember/routing/router-service';
 import { service } from '@ember/service';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
-import {
-  faArrowRight,
-  faArrowUpRightFromSquare,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import Avatar from 'charlesfries/components/avatar';
 import Contact from 'charlesfries/components/contact';
@@ -59,7 +56,7 @@ export default class Application extends Component {
       <footer
         class="border-t border-gray-300 text-center text-gray-400 mt-6 pt-4"
       >
-        © 2026 Charles Fries. All rights reserved.
+        {{t "copyright"}}
       </footer>
     </div>
   </template>

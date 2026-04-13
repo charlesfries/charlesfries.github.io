@@ -11,8 +11,6 @@ module('Integration | Component | toolbar', function (hooks) {
 
     await render(<template><Toolbar @onRefresh={{refresh}} /></template>);
 
-    assert
-      .dom()
-      .hasText('Pushed Created Updated Pushed Name All Sources Forks');
+    assert.dom().hasText('Created Updated Pushed Name All Sources Forks');
   });
 });

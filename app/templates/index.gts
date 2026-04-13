@@ -18,7 +18,7 @@ interface IndexSignature {
 }
 
 export default class Index extends Component<IndexSignature> {
-  get repositories(): GitHubRepository[] {
+  get repositories() {
     const { repositories } = this.args.model;
     return repositories.filter(({ fork }) => {
       if (this.args.controller._type) {

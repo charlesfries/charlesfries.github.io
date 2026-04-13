@@ -1,6 +1,13 @@
 name: Charles Fries
 description: My name is {name}. I am the <strong>Lead Software Engineer</strong> at <strong>Trusted American Insurance</strong>. Previously, I was a <strong>Web Application Developer</strong> at <strong>McMillan Study Guides</strong>. I love working on OSS and thinking about the developer experience. You can find me on GitHub, LinkedIn, Twitter, Instagram, or reach me via email.
 locale: Locale
+contact:
+  github: GitHub
+  linkedIn: LinkedIn
+  x: X
+  bluesky: Bluesky
+  instagram: Instagram
+  email: Email
 refresh: Refresh
 sort:
   created: Created
@@ -18,10 +25,4 @@ noDescription: No description
 updated: Updated on
 more: View more on GitHub
 error: Couldn't fetch GitHub repositories!
-contact:
-  github: GitHub
-  linkedIn: LinkedIn
-  x: X
-  bluesky: Bluesky
-  instagram: Instagram
-  email: Email
+copyright: © 2026 Charles Fries. All rights reserved.

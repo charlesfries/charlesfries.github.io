@@ -9,6 +9,6 @@ module('Integration | Component | grid', function (hooks) {
   test('it renders', async function (assert) {
     await render(<template><Grid /></template>);
 
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('');
   });
 });

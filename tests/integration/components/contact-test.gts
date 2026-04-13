@@ -1,15 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import Contact from 'charlesfries/components/contact';
 
-module('Integration | Component | placeholder', function (hooks) {
+module('Integration | Component | contact', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Placeholder />`);
+    await render(<template><Contact /></template>);
 
-    assert.dom('.card').exists();
-    assert.dom('.placeholder').exists();
+    assert.dom('a').exists({ count: 6 });
   });
 });

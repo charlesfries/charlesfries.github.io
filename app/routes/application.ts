@@ -1,9 +1,8 @@
 import Route from '@ember/routing/route';
-import { service } from '@ember/service';
-import mixpanel from 'mixpanel-browser';
-
-import type Intl from 'ember-intl/services/intl';
 import type RouterService from '@ember/routing/router-service';
+import { service } from '@ember/service';
+import { type IntlService as Intl } from 'ember-intl';
+import mixpanel from 'mixpanel-browser';
 
 export default class ApplicationRoute extends Route {
   @service declare intl: Intl;

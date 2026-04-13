@@ -1,14 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import Subheading from 'charlesfries/components/subheading';
 
-module('Integration | Component | heading', function (hooks) {
+module('Integration | Component | subheading', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Heading />`);
+    await render(<template><Subheading /></template>);
 
-    assert.dom('h1').exists();
+    assert.dom('h2').exists();
   });
 });

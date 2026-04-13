@@ -1,0 +1,15 @@
+<template>
+  <div class="col placeholder-glow">
+    <div class="card">
+      <div class="card-body">
+        <span class="placeholder col-7"></span>
+        <span class="placeholder col-1"></span>
+        <br />
+        <span class="placeholder col-6"></span>
+        <span class="placeholder col-5"></span>
+        <span class="placeholder col-4"></span>
+        <span class="placeholder col-6"></span>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,14 +1,16 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import Toolbar from 'charlesfries/components/toolbar';
 
 module('Integration | Component | toolbar', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
+    const refresh = () => {};
+
     await render(
-      hbs`<Toolbar @sort="pushed" @onRefresh={{fn (mut this.xyz)}} />`,
+      <template><Toolbar @sort="pushed" @onRefresh={{refresh}} /></template>,
     );
 
     assert

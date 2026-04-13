@@ -1,0 +1,9 @@
+import { t } from 'ember-intl';
+
+<template>
+  <img
+    src="https://avatars.githubusercontent.com/u/2275005?v=4"
+    alt={{t "name"}}
+    class="img-fluid rounded-circle"
+  />
+</template>

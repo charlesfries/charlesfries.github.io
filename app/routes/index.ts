@@ -1,19 +1,10 @@
 import Route from '@ember/routing/route';
+import type { GitHubRepository } from 'charlesfries/utils/github-types';
 import sleep from 'charlesfries/utils/sleep';
 
 export type Sort = 'created' | 'updated' | 'pushed' | 'full_name';
 export type Direction = 'asc' | 'desc';
 export type Type = 'sources' | 'forks';
-
-interface Params extends Record<string, unknown> {
-  sort: Sort;
-  direction: Direction;
-  type?: Type;
-}
-
-export interface Repository {
-  fork: boolean;
-}
 
 const DELAY = 500;
 
@@ -24,7 +15,14 @@ export default class IndexRoute extends Route {
     type: { refreshModel: false },
   };
 
-  async model({ sort, direction }: Params): Promise<Repository[]> {
+  async model({
+    sort,
+    direction,
+  }: {
+    sort: Sort;
+    direction: Direction;
+    type?: Type;
+  }) {
     await sleep(DELAY);
 
     const url = new URL('https://api.github.com/users/charlesfries/repos');
@@ -41,8 +39,17 @@ export default class IndexRoute extends Route {
       throw new Error('not ok');
     }
 
-    const repositories = (await response.json()) as Repository[];
+    const repositories = (await response.json()) as GitHubRepository[];
 
-    return repositories;
+    const remainingRequests = response.headers.get('X-RateLimit-Remaining');
+    const maxRequests = response.headers.get('X-RateLimit-Limit');
+    const resetAt = response.headers.get('X-RateLimit-Reset');
+
+    return {
+      repositories,
+      remainingRequests,
+      maxRequests,
+      resetAt: new Date(Number(resetAt) * 1000).toLocaleTimeString(),
+    };
   }
 }

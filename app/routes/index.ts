@@ -1,4 +1,6 @@
 import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+import type Store from 'charlesfries/services/store';
 import type { GitHubRepository } from 'charlesfries/utils/github-types';
 import sleep from 'charlesfries/utils/sleep';
 
@@ -9,6 +11,8 @@ export type Type = 'sources' | 'forks';
 const DELAY = 500;
 
 export default class IndexRoute extends Route {
+  @service declare store: Store;
+
   async model() {
     const { sort, direction } = this.paramsFor('application') as {
       sort: Sort;
@@ -26,20 +30,16 @@ export default class IndexRoute extends Route {
       url.searchParams.append('direction', direction);
     }
 
-    // eslint-disable-next-line warp-drive/no-external-request-patterns
-    const response = await fetch(url.href);
-    if (!response.ok) {
-      throw new Error('not ok');
-    }
+    const { response, content } = await this.store.requestManager.request<
+      GitHubRepository[]
+    >({ url: url.href });
 
-    const repositories = (await response.json()) as GitHubRepository[];
-
-    const remainingRequests = response.headers.get('X-RateLimit-Remaining');
-    const maxRequests = response.headers.get('X-RateLimit-Limit');
-    const resetAt = response.headers.get('X-RateLimit-Reset');
+    const remainingRequests = response?.headers.get('X-RateLimit-Remaining');
+    const maxRequests = response?.headers.get('X-RateLimit-Limit');
+    const resetAt = response?.headers.get('X-RateLimit-Reset');
 
     return {
-      repositories,
+      repositories: content,
       remainingRequests:
         typeof remainingRequests === 'string'
           ? Number(remainingRequests)

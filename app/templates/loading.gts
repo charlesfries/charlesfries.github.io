@@ -1,19 +1,14 @@
+import Grid from 'charlesfries/components/grid';
 import Placeholder from 'charlesfries/components/placeholder';
 import RateLimit from 'charlesfries/components/rate-limit';
 
+const range = (length: number) => new Array<void>(length);
+
 <template>
   <RateLimit @remaining={{null}} @max={{null}} @resetAt={{null}} />
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-  >
-    <Placeholder />
-    <Placeholder />
-    <Placeholder />
-    <Placeholder />
-    <Placeholder />
-    <Placeholder />
-    <Placeholder />
-    <Placeholder />
-    <Placeholder />
-  </div>
+  <Grid>
+    {{#each (range 24)}}
+      <Placeholder />
+    {{/each}}
+  </Grid>
 </template>

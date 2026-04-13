@@ -1,5 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import type { GitHubRepository } from 'charlesfries/utils/github-types';
+import Grid from './grid';
 import Repository from './repository';
 
 export interface RepositoriesSignature {
@@ -7,11 +8,9 @@ export interface RepositoriesSignature {
 }
 
 <template>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-  >
+  <Grid>
     {{#each @repositories as |repository|}}
       <Repository @repository={{repository}} />
     {{/each}}
-  </div>
+  </Grid>
 </template> satisfies TOC<RepositoriesSignature>;

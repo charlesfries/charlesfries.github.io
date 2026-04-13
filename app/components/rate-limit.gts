@@ -14,6 +14,8 @@ export interface RateLimitSignature {
 <template>
   <div class="text-right text-gray-400 mb-6">
     <FaIcon @icon={{faInfoCircle}} class="mr-1" />
-    {{t "requests" remaining=@remaining max=@max resetAt=@resetAt}}
+    {{#if @remaining}}
+      {{t "requests" remaining=@remaining max=@max resetAt=@resetAt}}
+    {{/if}}
   </div>
 </template> satisfies TOC<RateLimitSignature>;

@@ -1,18 +1,20 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
-import RateLimit from 'charlesfries/components/rate-limit';
+import Grid from 'charlesfries/components/grid';
 
-module('Integration | Component | rate-limit', function (hooks) {
+module('Integration | Component | grid', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     await render(
       <template>
-        <RateLimit @remaining={{null}} @max={{null}} @resetAt={{null}} />
+        <Grid>
+          template block text
+        </Grid>
       </template>,
     );
 
-    assert.dom().hasText('');
+    assert.dom().hasText('template block text');
   });
 });

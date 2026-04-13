@@ -6,12 +6,6 @@ export type Sort = 'created' | 'updated' | 'pushed' | 'full_name';
 export type Direction = 'asc' | 'desc';
 export type Type = 'sources' | 'forks';
 
-interface Params extends Record<string, unknown> {
-  sort: Sort;
-  direction: Direction;
-  type?: Type;
-}
-
 const DELAY = 500;
 
 export default class IndexRoute extends Route {
@@ -21,7 +15,14 @@ export default class IndexRoute extends Route {
     type: { refreshModel: false },
   };
 
-  async model({ sort, direction }: Params): Promise<GitHubRepository[]> {
+  async model({
+    sort,
+    direction,
+  }: {
+    sort: Sort;
+    direction: Direction;
+    type?: Type;
+  }) {
     await sleep(DELAY);
 
     const url = new URL('https://api.github.com/users/charlesfries/repos');
@@ -38,8 +39,6 @@ export default class IndexRoute extends Route {
       throw new Error('not ok');
     }
 
-    const repositories = (await response.json()) as GitHubRepository[];
-
-    return repositories;
+    return (await response.json()) as GitHubRepository[];
   }
 }

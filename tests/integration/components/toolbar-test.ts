@@ -8,7 +8,7 @@ module('Integration | Component | toolbar', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(
-      hbs`<Toolbar @sort="pushed" @onRefresh={{fn (mut this.xyz)}} />`
+      hbs`<Toolbar @sort="pushed" @onRefresh={{fn (mut this.xyz)}} />`,
     );
 
     assert

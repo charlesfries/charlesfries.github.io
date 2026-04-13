@@ -16,13 +16,10 @@ export default class Theme extends Component {
   }
 
   get isDark() {
-    const stored = localStorage.getItem('theme');
+    const storedTheme = localStorage.getItem('theme');
+    const isSystemDark = matchMedia('(prefers-color-scheme: dark)').matches;
 
-    const systemDark = window.matchMedia(
-      '(prefers-color-scheme: dark)',
-    ).matches;
-
-    return stored === 'dark' || (!stored && systemDark);
+    return storedTheme === 'dark' || (!storedTheme && isSystemDark);
   }
 
   toggle = () => {

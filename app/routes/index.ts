@@ -41,7 +41,7 @@ export default class IndexRoute extends Route {
       throw new Error('not ok');
     }
 
-    const repositories = await response.json();
+    const repositories = (await response.json()) as Repository[];
 
     return repositories;
   }

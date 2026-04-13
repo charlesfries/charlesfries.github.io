@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-
 import EmberRouter from '@ember/routing/router';
 import config from 'charlesfries/config/environment';
 
@@ -8,4 +6,6 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function () {});
+Router.map(function () {
+  // Add route declarations here
+});

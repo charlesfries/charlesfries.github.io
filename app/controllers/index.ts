@@ -1,5 +1,4 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
 import type RouterService from '@ember/routing/router-service';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
@@ -26,7 +25,7 @@ export default class IndexController extends Controller {
     });
   }
 
-  @action refresh(): void {
+  refresh = () => {
     this.router.refresh();
-  }
+  };
 }

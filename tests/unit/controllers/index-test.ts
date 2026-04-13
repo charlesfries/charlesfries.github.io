@@ -1,6 +1,5 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'charlesfries/tests/helpers';
-
 import type IndexController from 'charlesfries/controllers';
 
 module('Unit | Controller | index', function (hooks) {

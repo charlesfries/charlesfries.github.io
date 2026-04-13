@@ -2,6 +2,11 @@ import { fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
+import {
+  faRedo,
+  faSortAmountDown,
+  faSortAmountUp,
+} from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import type { Sort } from 'charlesfries/routes/index';
@@ -26,7 +31,7 @@ export default class Toolbar extends Component<ToolbarSignature> {
           tabindex={{unless @onRefresh "-1"}}
           {{on "click" (if @onRefresh @onRefresh (fn (mut this.xyz)))}}
         >
-          <FaIcon @icon="redo" role="presentation" />
+          <FaIcon @icon={{faRedo}} role="presentation" />
         </button>
       </div>
       <div class="btn-group" role="group">
@@ -69,7 +74,7 @@ export default class Toolbar extends Component<ToolbarSignature> {
           aria-label="Sort descending"
           tabindex={{unless @onRefresh "-1"}}
         >
-          <FaIcon @icon="sort-amount-down" role="presentation" />
+          <FaIcon @icon={{faSortAmountDown}} role="presentation" />
         </LinkTo>
         <LinkTo
           @query={{hash direction="asc"}}
@@ -78,7 +83,7 @@ export default class Toolbar extends Component<ToolbarSignature> {
           aria-label="Sort ascending"
           tabindex={{unless @onRefresh "-1"}}
         >
-          <FaIcon @icon="sort-amount-up" role="presentation" />
+          <FaIcon @icon={{faSortAmountUp}} role="presentation" />
         </LinkTo>
       </div>
       <div class="btn-group" role="group">

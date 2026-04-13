@@ -15,7 +15,6 @@ import type ApplicationController from 'charlesfries/controllers/application';
 
 interface ApplicationSignature {
   Args: {
-    model: unknown;
     controller: ApplicationController;
   };
 }

@@ -9,28 +9,11 @@ export type Type = 'sources' | 'forks';
 const DELAY = 500;
 
 export default class IndexRoute extends Route {
-  // queryParams = {
-  //   sort: { refreshModel: true },
-  //   direction: { refreshModel: true },
-  //   type: { refreshModel: false },
-  // };
-
   async model() {
-    // {
-    //   // sort,
-    //   // direction,
-    // }: {
-    //   sort: Sort;
-    //   direction: Direction;
-    //   type?: Type;
-    // },
     const { sort, direction } = this.paramsFor('application') as {
       sort: Sort;
       direction: Direction;
-      type?: Type;
     };
-
-    console.log('index', sort, direction);
 
     await sleep(DELAY);
 
@@ -57,9 +40,13 @@ export default class IndexRoute extends Route {
 
     return {
       repositories,
-      remainingRequests: Number(remainingRequests),
-      maxRequests: Number(maxRequests),
-      resetAt: new Date(Number(resetAt) * 1000).toLocaleTimeString(),
+      remainingRequests:
+        typeof remainingRequests === 'string'
+          ? Number(remainingRequests)
+          : null,
+      maxRequests: typeof maxRequests === 'string' ? Number(maxRequests) : null,
+      resetAt:
+        typeof resetAt === 'string' ? new Date(Number(resetAt) * 1000) : null,
     };
   }
 }

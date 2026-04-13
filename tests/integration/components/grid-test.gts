@@ -7,13 +7,7 @@ module('Integration | Component | grid', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(
-      <template>
-        <Grid>
-          template block text
-        </Grid>
-      </template>,
-    );
+    await render(<template><Grid /></template>);
 
     assert.dom().hasText('template block text');
   });

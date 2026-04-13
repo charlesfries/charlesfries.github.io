@@ -9,9 +9,9 @@ interface IndexSignature {
   Args: {
     model: {
       repositories: GitHubRepository[];
-      remainingRequests: number;
-      maxRequests: number;
-      resetAt: string;
+      remainingRequests: number | null;
+      maxRequests: number | null;
+      resetAt: Date | null;
     };
     controller: IndexController;
   };
@@ -21,8 +21,8 @@ export default class Index extends Component<IndexSignature> {
   get repositories(): GitHubRepository[] {
     const { repositories } = this.args.model;
     return repositories.filter(({ fork }) => {
-      if (this.args.controller.type) {
-        return fork === ('forks' === this.args.controller.type);
+      if (this.args.controller._type) {
+        return fork === ('forks' === this.args.controller._type);
       }
       return true;
     });

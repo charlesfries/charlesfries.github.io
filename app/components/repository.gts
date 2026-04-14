@@ -36,7 +36,7 @@ export const languageColors: Record<string, string> = {
 };
 
 const getLanguageColor = (language: string) =>
-  languageColors[language] ?? 'bg-gray-300';
+  languageColors[language] ?? 'text-neutral-400';
 
 export const CARD_CLASS_NAME =
   'bg-white dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-700 rounded-xl p-4';
@@ -67,13 +67,12 @@ export interface RepositorySignature {
     </div>
     <div class="flex gap-2 mt-1">
       <span
-        class="font-semibold
-          {{getLanguageColor @repository.primaryLanguage.name}}"
+        class="font-bold {{getLanguageColor @repository.primaryLanguage.name}}"
       >
         {{@repository.primaryLanguage.name}}
       </span>
       <div>
-        <FaIcon @icon={{faStar}} class="text-yellow-400" />
+        <FaIcon @icon={{faStar}} class="text-neutral-300" />
         <span class="text-neutral-500">{{@repository.stargazerCount}}</span>
       </div>
       <div>

@@ -25,6 +25,10 @@ module('Integration | Component | repository', function (hooks) {
       <template><Repository @repository={{repository}} /></template>,
     );
 
-    assert.dom().hasText('This is a description. 1 2 Updated on January 2026');
+    assert
+      .dom()
+      .hasText(
+        'Name This is a description. TypeScript 1 2 Updated on January 2026',
+      );
   });
 });

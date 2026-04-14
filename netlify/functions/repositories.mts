@@ -1,6 +1,5 @@
 export default async (request: Request) => {
   const gql = String.raw;
-
   const query = gql`
     query GetRepositories(
       $sort: RepositoryOrderField!

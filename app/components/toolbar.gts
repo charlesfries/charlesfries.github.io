@@ -18,7 +18,7 @@ export interface ToolbarSignature {
 }
 
 <template>
-  <div class="flex flex-wrap gap-2 mb-6" role="toolbar">
+  <div class="flex flex-wrap gap-2 mb-6">
     <button
       type="button"
       class="{{BUTTON_CLASS_NAME}} rounded-lg cursor-pointer"

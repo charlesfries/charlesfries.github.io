@@ -48,7 +48,7 @@ export interface RepositorySignature {
 <template>
   <div
     class="{{CARD_CLASS_NAME}}
-      relative hover:border-blue-500 hover:shadow transition-all duration-300"
+      relative hover:border-blue-500 hover:shadow transition-shadow duration-300"
   >
     <a
       href={{@repository.url}}

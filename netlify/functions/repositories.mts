@@ -54,7 +54,7 @@ export default async (request: Request) => {
       });
     }
 
-    const repositories = data.data.user.repositories.nodes;
+    const repositories = data.data.user.repositories.nodes as { id: string }[];
 
     const h = response.headers;
 

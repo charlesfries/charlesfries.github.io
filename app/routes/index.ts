@@ -1,14 +1,17 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
+import { query, setBuildURLConfig } from '@warp-drive/utilities/json-api';
 import type Store from 'charlesfries/services/store';
-import type { GitHubRepository } from 'charlesfries/utils/github-types';
-// import sleep from 'charlesfries/utils/sleep';
+import type { Repository } from 'charlesfries/services/store';
 
 export type Sort = 'CREATED_AT' | 'UPDATED_AT' | 'PUSHED_AT' | 'NAME';
 export type Direction = 'ASC' | 'DESC';
 export type Type = 'sources' | 'forks';
 
-// const DELAY = 500;
+setBuildURLConfig({
+  host: null,
+  namespace: 'api/v1',
+});
 
 export default class IndexRoute extends Route {
   @service declare store: Store;
@@ -19,22 +22,24 @@ export default class IndexRoute extends Route {
       direction: Direction;
     };
 
-    // await sleep(DELAY);
-
     const url = new URL('/api/v1/repositories', location.origin);
     url.searchParams.append('sort', sort);
     url.searchParams.append('direction', direction);
 
-    const { response, content } = await this.store.requestManager.request<
-      GitHubRepository[]
-    >({ url: url.pathname + url.search });
+    const { response, content } = await this.store.request(
+      query<Repository>(
+        'repository',
+        { sort, direction },
+        { backgroundReload: true },
+      ),
+    );
 
     const remainingRequests = response?.headers.get('X-RateLimit-Remaining');
     const maxRequests = response?.headers.get('X-RateLimit-Limit');
     const resetAt = response?.headers.get('X-RateLimit-Reset');
 
     return {
-      repositories: content,
+      repositories: content.data,
       remainingRequests:
         typeof remainingRequests === 'string'
           ? Number(remainingRequests)

@@ -11,14 +11,14 @@ import {
 import { t } from 'ember-intl';
 
 export const BUTTON_CLASS_NAME =
-  'bg-white border border-gray-300 dark:border-gray-600 hover:bg-gray-100 [&.active]:bg-gray-200 active:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:[&.active]:bg-gray-600 dark:active:bg-gray-500 font-semibold px-4 py-2';
+  'bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-700 [&.active]:bg-neutral-200 active:bg-neutral-200 dark:[&.active]:bg-neutral-600 dark:active:bg-neutral-600 font-semibold px-4 py-2';
 
 export interface ToolbarSignature {
   onRefresh: () => void;
 }
 
 <template>
-  <div class="flex flex-wrap gap-2 mb-6" role="toolbar">
+  <div class="flex flex-wrap gap-2 mb-6">
     <button
       type="button"
       class="{{BUTTON_CLASS_NAME}} rounded-lg cursor-pointer"

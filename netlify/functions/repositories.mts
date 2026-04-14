@@ -11,6 +11,7 @@ export default async (request: Request) => {
           orderBy: { field: $sort, direction: $direction }
         ) {
           nodes {
+            id
             name
             description
             url
@@ -53,19 +54,33 @@ export default async (request: Request) => {
       });
     }
 
-    const repositories = data.data.user.repositories.nodes;
-
-    const h = response.headers;
+    const repositories = data.data.user.repositories.nodes as { id: string }[];
 
     const headers = new Headers();
     headers.set('Content-Type', 'application/json');
-    headers.set('X-RateLimit-Remaining', h.get('X-RateLimit-Remaining') ?? '');
-    headers.set('X-RateLimit-Limit', h.get('X-RateLimit-Limit') ?? '');
-    headers.set('X-RateLimit-Reset', h.get('X-RateLimit-Reset') ?? '');
 
-    return new Response(JSON.stringify(repositories), {
-      headers,
-    });
+    const forwardHeaders = [
+      'X-RateLimit-Remaining',
+      'X-RateLimit-Limit',
+      'X-RateLimit-Reset',
+    ];
+
+    for (const name of forwardHeaders) {
+      const value = response.headers.get(name);
+      if (value) {
+        headers.set(name, value);
+      }
+    }
+
+    const body = {
+      data: repositories.map(({ id, ...attributes }) => ({
+        type: 'repository',
+        id,
+        attributes,
+      })),
+    };
+
+    return new Response(JSON.stringify(body), { headers });
   } catch (error) {
     console.error(error);
     return new Response('Error', { status: 500 });

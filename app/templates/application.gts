@@ -1,7 +1,5 @@
 import type RouterService from '@ember/routing/router-service';
 import { service } from '@ember/service';
-import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import Avatar from 'charlesfries/components/avatar';
 import Description from 'charlesfries/components/description';
@@ -12,21 +10,6 @@ import Socials from 'charlesfries/components/socials';
 import Theme from 'charlesfries/components/theme';
 import Toolbar from 'charlesfries/components/toolbar';
 import { t } from 'ember-intl';
-
-const MoreButton = <template>
-  <a
-    class="bg-blue-700 hover:bg-blue-900 text-white font-semibold px-3 py-2 rounded-lg"
-    href="https://github.com/charlesfries"
-    role="button"
-  >
-    <FaIcon
-      @icon={{faArrowUpRightFromSquare}}
-      class="mr-1"
-      role="presentation"
-    />
-    {{t "more"}}
-  </a>
-</template>;
 
 export default class Application extends Component {
   @service declare router: RouterService;
@@ -53,12 +36,9 @@ export default class Application extends Component {
       <main>
         <Toolbar @onRefresh={{this.refresh}} />
         {{outlet}}
-        <div class="flex justify-center pt-6">
-          <MoreButton />
-        </div>
       </main>
       <footer
-        class="border-t border-gray-300 text-center text-gray-400 mt-6 pt-4"
+        class="border-t border-neutral-300 text-center text-neutral-400 mt-10 pt-4"
       >
         {{t "copyright"}}
       </footer>

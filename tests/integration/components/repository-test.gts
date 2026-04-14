@@ -2,13 +2,13 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
 import Repository from 'charlesfries/components/repository';
-import type { GitHubRepository } from 'charlesfries/utils/github-types';
+import type { Repository as _Repository } from 'charlesfries/services/store';
 
 module('Integration | Component | repository', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const repository: GitHubRepository = {
+    const repository = {
       name: 'Name',
       description: 'This is a description.',
       url: 'https://github.com/',
@@ -19,7 +19,7 @@ module('Integration | Component | repository', function (hooks) {
       primaryLanguage: {
         name: 'TypeScript',
       },
-    };
+    } as _Repository;
 
     await render(
       <template><Repository @repository={{repository}} /></template>,

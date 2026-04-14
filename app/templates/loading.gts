@@ -6,8 +6,8 @@ const range = (length: number) => new Array<void>(length);
 
 <template>
   <RateLimit @remaining={{null}} @max={{null}} @resetAt={{null}} />
-  <Grid>
-    {{#each (range 24)}}
+  <Grid class="fade-top-bottom">
+    {{#each (range 32)}}
       <Placeholder />
     {{/each}}
   </Grid>

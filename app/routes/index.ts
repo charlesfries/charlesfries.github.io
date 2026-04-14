@@ -2,13 +2,13 @@ import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 import type Store from 'charlesfries/services/store';
 import type { GitHubRepository } from 'charlesfries/utils/github-types';
-import sleep from 'charlesfries/utils/sleep';
+// import sleep from 'charlesfries/utils/sleep';
 
-export type Sort = 'created' | 'updated' | 'pushed' | 'full_name';
-export type Direction = 'asc' | 'desc';
+export type Sort = 'CREATED_AT' | 'UPDATED_AT' | 'PUSHED_AT' | 'NAME';
+export type Direction = 'ASC' | 'DESC';
 export type Type = 'sources' | 'forks';
 
-const DELAY = 500;
+// const DELAY = 500;
 
 export default class IndexRoute extends Route {
   @service declare store: Store;
@@ -19,20 +19,15 @@ export default class IndexRoute extends Route {
       direction: Direction;
     };
 
-    await sleep(DELAY);
+    // await sleep(DELAY);
 
-    const url = new URL('https://api.github.com/users/charlesfries/repos');
-
-    if (sort) {
-      url.searchParams.append('sort', sort);
-    }
-    if (direction) {
-      url.searchParams.append('direction', direction);
-    }
+    const url = new URL('/api/v1/repositories', location.origin);
+    url.searchParams.append('sort', sort);
+    url.searchParams.append('direction', direction);
 
     const { response, content } = await this.store.requestManager.request<
       GitHubRepository[]
-    >({ url: url.href });
+    >({ url: url.pathname + url.search });
 
     const remainingRequests = response?.headers.get('X-RateLimit-Remaining');
     const maxRequests = response?.headers.get('X-RateLimit-Limit');

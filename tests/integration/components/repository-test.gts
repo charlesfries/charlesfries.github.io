@@ -8,17 +8,27 @@ module('Integration | Component | repository', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const repository = {
+    const repository: GitHubRepository = {
+      name: 'Name',
       description: 'This is a description.',
-      pushed_at: new Date(2026, 0, 1).toISOString(),
-      stargazers_count: 1,
-      forks_count: 2,
-    } as GitHubRepository;
+      url: 'https://github.com/',
+      stargazerCount: 1,
+      forkCount: 2,
+      isFork: false,
+      pushedAt: new Date(2026, 0, 1).toISOString(),
+      primaryLanguage: {
+        name: 'TypeScript',
+      },
+    };
 
     await render(
       <template><Repository @repository={{repository}} /></template>,
     );
 
-    assert.dom().hasText('This is a description. 1 2 Updated on January 2026');
+    assert
+      .dom()
+      .hasText(
+        'Name This is a description. TypeScript 1 2 Updated on January 2026',
+      );
   });
 });

@@ -1,7 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { t } from 'ember-intl';
+import { formatNumber, t } from 'ember-intl';
 import { eq } from 'ember-truth-helpers';
 
 const runningLow = (remaining: number | null, max: number | null) => {
@@ -32,8 +32,8 @@ export interface RateLimitSignature {
     {{#unless (eq null @remaining)}}
       {{t
         "requests"
-        remaining=@remaining
-        max=@max
+        remaining=(formatNumber @remaining)
+        max=(formatNumber @max)
         resetAt=(formatDate @resetAt)
       }}
     {{/unless}}

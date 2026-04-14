@@ -27,7 +27,11 @@ export default class IndexRoute extends Route {
     url.searchParams.append('direction', direction);
 
     const { response, content } = await this.store.request(
-      query<Repository>('repository', { sort, direction }),
+      query<Repository>(
+        'repository',
+        { sort, direction },
+        { backgroundReload: true },
+      ),
     );
 
     const remainingRequests = response?.headers.get('X-RateLimit-Remaining');

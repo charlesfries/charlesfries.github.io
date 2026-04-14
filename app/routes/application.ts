@@ -1,14 +1,12 @@
 import Route from '@ember/routing/route';
 import type RouterService from '@ember/routing/router-service';
 import { service } from '@ember/service';
-// import type Store from 'charlesfries/services/store';
 import { type IntlService as Intl } from 'ember-intl';
 import mixpanel from 'mixpanel-browser';
 
 export default class ApplicationRoute extends Route {
   @service declare intl: Intl;
   @service declare router: RouterService;
-  // @service declare store: Store;
 
   queryParams = {
     sort: { refreshModel: true },
@@ -26,11 +24,4 @@ export default class ApplicationRoute extends Route {
       mixpanel.track('Page view', { page, title });
     });
   }
-
-  // async model() {
-  //   const { content } = await this.store.requestManager.request({
-  //     url: '/api/v1/auth-login?name=WHAT',
-  //   });
-  //   console.log(content);
-  // }
 }

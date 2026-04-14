@@ -4,8 +4,8 @@ import type Store from 'charlesfries/services/store';
 import type { GitHubRepository } from 'charlesfries/utils/github-types';
 import sleep from 'charlesfries/utils/sleep';
 
-export type Sort = 'created' | 'updated' | 'pushed' | 'full_name';
-export type Direction = 'asc' | 'desc';
+export type Sort = 'CREATED_AT' | 'UPDATED_AT' | 'PUSHED_AT' | 'NAME';
+export type Direction = 'ASC' | 'DESC';
 export type Type = 'sources' | 'forks';
 
 const DELAY = 500;
@@ -26,8 +26,8 @@ export default class IndexRoute extends Route {
     >({
       url: '/api/v1/repositories',
       method: 'POST',
+      body: JSON.stringify({ sort, direction }),
     });
-    console.log(content);
 
     // const url = new URL('https://api.github.com/users/charlesfries/repos');
 

@@ -1,8 +1,11 @@
-export default async () => {
+export default async (request: Request) => {
   const query = `
-    query {
+    query GetRepositories($sort: RepositoryOrderField!, $direction: OrderDirection!) {
       user(login: "charlesfries") {
-        repositories(first: 30, orderBy: { field: PUSHED_AT, direction: DESC }) {
+        repositories(
+          first: 30
+          orderBy: { field: $sort, direction: $direction }
+        ) {
           nodes {
             name
             description
@@ -20,6 +23,9 @@ export default async () => {
     }
   `;
 
+  const { sort = 'PUSHED_AT', direction = 'DESC' } = await request.json();
+  const variables = { sort, direction };
+
   try {
     const response = await fetch('https://api.github.com/graphql', {
       method: 'POST',
@@ -27,26 +33,23 @@ export default async () => {
         Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ query }),
+      body: JSON.stringify({ query, variables }),
     });
 
     const data = await response.json();
 
-    if (!response.ok) {
-      return new Response(JSON.stringify(data), {
-        status: response.status,
-        headers: {
-          'Content-Type': 'application/json',
-        },
+    if (!response.ok || data.errors) {
+      console.error(data);
+      return new Response(JSON.stringify(data.errors ?? data), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
       });
     }
 
     const repositories = data.data.user.repositories.nodes;
 
     return new Response(JSON.stringify(repositories), {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
     console.error(error);

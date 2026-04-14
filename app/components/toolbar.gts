@@ -29,22 +29,25 @@ export interface ToolbarSignature {
     </button>
     <div class="flex">
       <LinkTo
-        @query={{hash sort="created"}}
+        @query={{hash sort="CREATED_AT"}}
         class="{{BUTTON_CLASS_NAME}} rounded-l-lg -mr-1"
       >
         {{t "sort.created"}}
       </LinkTo>
       <LinkTo
-        @query={{hash sort="updated"}}
+        @query={{hash sort="UPDATED_AT"}}
         class="{{BUTTON_CLASS_NAME}} -mr-1"
       >
         {{t "sort.updated"}}
       </LinkTo>
-      <LinkTo @query={{hash sort="pushed"}} class="{{BUTTON_CLASS_NAME}} -mr-1">
+      <LinkTo
+        @query={{hash sort="PUSHED_AT"}}
+        class="{{BUTTON_CLASS_NAME}} -mr-1"
+      >
         {{t "sort.pushed"}}
       </LinkTo>
       <LinkTo
-        @query={{hash sort="full_name"}}
+        @query={{hash sort="NAME"}}
         class="{{BUTTON_CLASS_NAME}} rounded-r-lg"
       >
         {{t "sort.name"}}
@@ -52,7 +55,7 @@ export interface ToolbarSignature {
     </div>
     <div class="flex">
       <LinkTo
-        @query={{hash direction="desc"}}
+        @query={{hash direction="DESC"}}
         class="{{BUTTON_CLASS_NAME}} rounded-l-lg -mr-1"
         role="button"
         aria-label={{t "sortDescending"}}
@@ -60,7 +63,7 @@ export interface ToolbarSignature {
         <FaIcon @icon={{faSortAmountDown}} role="presentation" />
       </LinkTo>
       <LinkTo
-        @query={{hash direction="asc"}}
+        @query={{hash direction="ASC"}}
         class="{{BUTTON_CLASS_NAME}} rounded-r-lg"
         role="button"
         aria-label={{t "sortAscending"}}

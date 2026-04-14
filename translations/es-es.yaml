@@ -12,7 +12,7 @@ refresh: Refrescar
 sort:
   created: Fecha de Creación
   updated: Fecha Actualizada
-  pushed: Pushed
+  pushed: Renovado
   name: Nombre
 sortDescending: Orden descendente
 sortAscending: Orden ascendente
@@ -20,10 +20,9 @@ type:
   all: Todas
   sources: Fuentes
   forks: Tenedoras
-requests: "{remaining} of {max} requests remaining (resets at {resetAt})" # TODO
+requests: "{remaining} de {max} solicitudes restantes (se restablece a las {resetAt})"
 noDescription: Sin Descripción
 updated: Actualizada
 more: Más en GitHub
 error: ¡No se pudieron obtener los repositorios de GitHub!
-copyright: © 2026 Charles Fries. All rights reserved. # TODO
-
+copyright: © 2026 Charles Fries. Reservados todos los derechos.

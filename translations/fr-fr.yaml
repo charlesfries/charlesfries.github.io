@@ -12,7 +12,7 @@ refresh: Rafraîchir
 sort:
   created: Date de création
   updated: Date de mise à jour
-  pushed: Pushed
+  pushed: Renouvelé
   name: Nom
 sortDescending: Trier par ordre décroissant
 sortAscending: Trier par ordre croissant
@@ -20,10 +20,9 @@ type:
   all: Toute
   sources: Sources
   forks: Fourchettes
-requests: "{remaining} of {max} requests remaining (resets at {resetAt})" # TODO
+requests: "{remaining} sur {max} requêtes restantes (réinitialisation à {resetAt})"
 noDescription: Pas de description
 updated: Actualisé
 more: En savoir plus sur GitHub
 error: Impossible de récupérer les dépôts GitHub!
-copyright: © 2026 Charles Fries. All rights reserved. # TODO
-
+copyright: © 2026 Charles Fries. Tous droits réservés.

@@ -8,7 +8,7 @@ module('Integration | Component | repository', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    const repository: _Repository = {
+    const repository = {
       name: 'Name',
       description: 'This is a description.',
       url: 'https://github.com/',
@@ -19,7 +19,7 @@ module('Integration | Component | repository', function (hooks) {
       primaryLanguage: {
         name: 'TypeScript',
       },
-    };
+    } as _Repository;
 
     await render(
       <template><Repository @repository={{repository}} /></template>,

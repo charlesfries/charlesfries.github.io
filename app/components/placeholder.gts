@@ -1,6 +1,6 @@
 import { CARD_CLASS_NAME } from './repository';
 
-const CLASS_NAME = 'bg-gray-200 dark:bg-gray-800';
+const CLASS_NAME = 'bg-neutral-200 dark:bg-neutral-800';
 
 <template>
   <div class={{CARD_CLASS_NAME}}>

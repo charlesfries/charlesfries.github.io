@@ -4,6 +4,40 @@ import { faCodeFork, faStar } from '@fortawesome/free-solid-svg-icons';
 import type { Repository } from 'charlesfries/services/store';
 import { formatDate, t } from 'ember-intl';
 
+export const languageColors: Record<string, string> = {
+  JavaScript: 'text-yellow-400',
+  TypeScript: 'text-blue-500',
+  Python: 'text-blue-400',
+  Java: 'text-orange-500',
+  C: 'text-gray-500',
+  'C++': 'text-blue-600',
+  'C#': 'text-green-600',
+  Go: 'text-cyan-500',
+  Rust: 'text-orange-600',
+  Ruby: 'text-red-600',
+  PHP: 'text-indigo-400',
+  Swift: 'text-orange-400',
+  Kotlin: 'text-purple-500',
+  Dart: 'text-blue-400',
+  Scala: 'text-red-500',
+  Shell: 'text-green-500',
+  PowerShell: 'text-blue-700',
+  HTML: 'text-orange-600',
+  CSS: 'text-blue-300',
+  SCSS: 'text-pink-400',
+  Less: 'text-blue-500',
+  JSON: 'text-gray-400',
+  YAML: 'text-red-400',
+  Markdown: 'text-gray-600',
+  GraphQL: 'text-pink-500',
+  SQL: 'text-blue-700',
+  Dockerfile: 'text-blue-500',
+  Makefile: 'text-gray-500',
+};
+
+const getLanguageColor = (language: string) =>
+  languageColors[language] ?? 'bg-gray-300';
+
 export const CARD_CLASS_NAME =
   'bg-white dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-700 rounded-xl p-4';
 
@@ -22,7 +56,7 @@ export interface RepositorySignature {
     >
       {{@repository.name}}</a>
     {{#if @repository.isFork}}
-      <FaIcon @icon={{faCodeFork}} class="text-gray-300" />
+      <FaIcon @icon={{faCodeFork}} class="text-neutral-300" />
     {{/if}}
     <div class="mt-1">
       {{#if @repository.description}}
@@ -33,16 +67,16 @@ export interface RepositorySignature {
     </div>
     <div class="mt-1">
       {{#if @repository.primaryLanguage.name}}
-        <strong class="text-green-700">
+        <strong class={{getLanguageColor @repository.primaryLanguage.name}}>
           {{@repository.primaryLanguage.name}}
         </strong>
       {{/if}}
       <FaIcon @icon={{faStar}} class="text-yellow-400" />
-      <span class="text-gray-500">{{@repository.stargazerCount}}</span>
-      <FaIcon @icon={{faCodeFork}} class="text-gray-300" />
-      <span class="text-gray-500">{{@repository.forkCount}}</span>
+      <span class="text-neutral-500">{{@repository.stargazerCount}}</span>
+      <FaIcon @icon={{faCodeFork}} class="text-neutral-300" />
+      <span class="text-neutral-500">{{@repository.forkCount}}</span>
     </div>
-    <p class="text-sm text-gray-400 mt-2">
+    <p class="text-sm text-neutral-400 mt-2">
       {{t "updated"}}
       {{formatDate @repository.pushedAt year="numeric" month="long"}}
     </p>

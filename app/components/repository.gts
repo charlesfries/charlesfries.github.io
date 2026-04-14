@@ -1,9 +1,8 @@
 import type { TOC } from '@ember/component/template-only';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import { faCodeFork, faStar } from '@fortawesome/free-solid-svg-icons';
-import timestamp from 'charlesfries/helpers/timestamp';
 import type { GitHubRepository } from 'charlesfries/utils/github-types';
-import { t } from 'ember-intl';
+import { formatDate, t } from 'ember-intl';
 
 export interface RepositorySignature {
   repository: GitHubRepository;
@@ -41,7 +40,7 @@ export interface RepositorySignature {
     </div>
     <p class="text-sm text-gray-400 mt-2">
       {{t "updated"}}
-      {{timestamp @repository.pushedAt}}
+      {{formatDate @repository.pushedAt year="numeric" month="long"}}
     </p>
   </div>
 </template> satisfies TOC<RepositorySignature>;

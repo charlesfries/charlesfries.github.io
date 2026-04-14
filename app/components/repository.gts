@@ -62,23 +62,28 @@ export interface RepositorySignature {
       {{#if @repository.description}}
         {{@repository.description}}
       {{else}}
-        <i>{{t "noDescription"}}</i>
+        <span class="italic">{{t "noDescription"}}</span>
       {{/if}}
     </div>
-    <div class="mt-1">
-      {{#if @repository.primaryLanguage.name}}
-        <strong class={{getLanguageColor @repository.primaryLanguage.name}}>
-          {{@repository.primaryLanguage.name}}
-        </strong>
-      {{/if}}
-      <FaIcon @icon={{faStar}} class="text-yellow-400" />
-      <span class="text-neutral-500">{{@repository.stargazerCount}}</span>
-      <FaIcon @icon={{faCodeFork}} class="text-neutral-300" />
-      <span class="text-neutral-500">{{@repository.forkCount}}</span>
+    <div class="flex gap-2 mt-1">
+      <span
+        class="font-semibold
+          {{getLanguageColor @repository.primaryLanguage.name}}"
+      >
+        {{@repository.primaryLanguage.name}}
+      </span>
+      <div>
+        <FaIcon @icon={{faStar}} class="text-yellow-400" />
+        <span class="text-neutral-500">{{@repository.stargazerCount}}</span>
+      </div>
+      <div>
+        <FaIcon @icon={{faCodeFork}} class="text-neutral-300" />
+        <span class="text-neutral-500">{{@repository.forkCount}}</span>
+      </div>
     </div>
-    <p class="text-sm text-neutral-400 mt-2">
+    <div class="text-sm text-neutral-400 mt-2">
       {{t "updated"}}
       {{formatDate @repository.pushedAt year="numeric" month="long"}}
-    </p>
+    </div>
   </div>
 </template> satisfies TOC<RepositorySignature>;

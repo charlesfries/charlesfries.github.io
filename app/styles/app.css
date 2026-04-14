@@ -35,3 +35,7 @@
   font-family: Yesteryear, cursive;
   animation: color-foreground-rotate 2s linear infinite;
 }
+
+.fade-top-bottom {
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}

@@ -12,6 +12,7 @@ export const languageColors: Record<string, string> = {
   C: 'text-gray-500',
   'C++': 'text-blue-600',
   'C#': 'text-green-600',
+  'Objective-C': 'text-blue-500',
   Go: 'text-cyan-500',
   Rust: 'text-orange-600',
   Ruby: 'text-red-600',
@@ -66,11 +67,14 @@ export interface RepositorySignature {
       {{/if}}
     </div>
     <div class="flex gap-2 mt-1">
-      <span
-        class="font-bold {{getLanguageColor @repository.primaryLanguage.name}}"
-      >
-        {{@repository.primaryLanguage.name}}
-      </span>
+      {{#if @repository.primaryLanguage}}
+        <span
+          class="font-bold
+            {{getLanguageColor @repository.primaryLanguage.name}}"
+        >
+          {{@repository.primaryLanguage.name}}
+        </span>
+      {{/if}}
       <div>
         <FaIcon @icon={{faStar}} class="text-neutral-300" />
         <span class="text-neutral-500">{{@repository.stargazerCount}}</span>

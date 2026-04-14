@@ -2,13 +2,10 @@ import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 import type Store from 'charlesfries/services/store';
 import type { GitHubRepository } from 'charlesfries/utils/github-types';
-// import sleep from 'charlesfries/utils/sleep';
 
 export type Sort = 'CREATED_AT' | 'UPDATED_AT' | 'PUSHED_AT' | 'NAME';
 export type Direction = 'ASC' | 'DESC';
 export type Type = 'sources' | 'forks';
-
-// const DELAY = 500;
 
 export default class IndexRoute extends Route {
   @service declare store: Store;
@@ -18,8 +15,6 @@ export default class IndexRoute extends Route {
       sort: Sort;
       direction: Direction;
     };
-
-    // await sleep(DELAY);
 
     const url = new URL('/api/v1/repositories', location.origin);
     url.searchParams.append('sort', sort);

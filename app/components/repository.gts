@@ -1,11 +1,11 @@
 import type { TOC } from '@ember/component/template-only';
 import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
 import { faCodeFork, faStar } from '@fortawesome/free-solid-svg-icons';
-import type { GitHubRepository } from 'charlesfries/utils/github-types';
+import type { Repository } from 'charlesfries/services/store';
 import { formatDate, t } from 'ember-intl';
 
 export interface RepositorySignature {
-  repository: GitHubRepository;
+  repository: Repository;
 }
 
 <template>

@@ -3,12 +3,12 @@ import Grid from 'charlesfries/components/grid';
 import RateLimit from 'charlesfries/components/rate-limit';
 import Repository from 'charlesfries/components/repository';
 import type IndexController from 'charlesfries/controllers/index';
-import type { GitHubRepository } from 'charlesfries/utils/github-types';
+import type { Repository as _Repository } from 'charlesfries/services/store';
 
 interface IndexSignature {
   Args: {
     model: {
-      repositories: GitHubRepository[];
+      repositories: _Repository[];
       remainingRequests: number | null;
       maxRequests: number | null;
       resetAt: Date | null;

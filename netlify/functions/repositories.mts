@@ -11,6 +11,7 @@ export default async (request: Request) => {
           orderBy: { field: $sort, direction: $direction }
         ) {
           nodes {
+            id
             name
             description
             url
@@ -63,9 +64,18 @@ export default async (request: Request) => {
     headers.set('X-RateLimit-Limit', h.get('X-RateLimit-Limit') ?? '');
     headers.set('X-RateLimit-Reset', h.get('X-RateLimit-Reset') ?? '');
 
-    return new Response(JSON.stringify(repositories), {
-      headers,
-    });
+    return new Response(
+      JSON.stringify({
+        data: repositories.map(({ id, ...attributes }) => ({
+          type: 'repository',
+          id,
+          attributes,
+        })),
+      }),
+      {
+        headers,
+      },
+    );
   } catch (error) {
     console.error(error);
     return new Response('Error', { status: 500 });

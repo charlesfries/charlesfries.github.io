@@ -1,11 +1,16 @@
 export default async (request: Request) => {
-  const query = `
+  const gql = String.raw;
+
+  const query = gql`
     query GetRepositories(
       $sort: RepositoryOrderField!
       $direction: OrderDirection!
     ) {
       user(login: "charlesfries") {
-        repositories(first: 30, orderBy: { field: $sort, direction: $direction }) {
+        repositories(
+          first: 30
+          orderBy: { field: $sort, direction: $direction }
+        ) {
           nodes {
             name
             description

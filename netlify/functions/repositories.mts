@@ -1,11 +1,11 @@
 export default async (request: Request) => {
   const query = `
-    query GetRepositories($sort: RepositoryOrderField!, $direction: OrderDirection!) {
+    query GetRepositories(
+      $sort: RepositoryOrderField!
+      $direction: OrderDirection!
+    ) {
       user(login: "charlesfries") {
-        repositories(
-          first: 30
-          orderBy: { field: $sort, direction: $direction }
-        ) {
+        repositories(first: 30, orderBy: { field: $sort, direction: $direction }) {
           nodes {
             name
             description
@@ -23,10 +23,13 @@ export default async (request: Request) => {
     }
   `;
 
-  const { sort = 'PUSHED_AT', direction = 'DESC' } = await request.json();
-  const variables = { sort, direction };
-
   try {
+    const url = new URL(request.url);
+    const sort = url.searchParams.get('sort') ?? 'PUSHED_AT';
+    const direction = url.searchParams.get('direction') ?? 'DESC';
+
+    const variables = { sort, direction };
+
     const response = await fetch('https://api.github.com/graphql', {
       method: 'POST',
       headers: {

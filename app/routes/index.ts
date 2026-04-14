@@ -21,26 +21,13 @@ export default class IndexRoute extends Route {
 
     // await sleep(DELAY);
 
+    const url = new URL('/api/v1/repositories', location.origin);
+    url.searchParams.append('sort', sort);
+    url.searchParams.append('direction', direction);
+
     const { content } = await this.store.requestManager.request<
       GitHubRepository[]
-    >({
-      url: '/api/v1/repositories',
-      method: 'POST',
-      body: JSON.stringify({ sort, direction }),
-    });
-
-    // const url = new URL('https://api.github.com/users/charlesfries/repos');
-
-    // if (sort) {
-    //   url.searchParams.append('sort', sort);
-    // }
-    // if (direction) {
-    //   url.searchParams.append('direction', direction);
-    // }
-
-    // const { response, content } = await this.store.requestManager.request<
-    //   GitHubRepository[]
-    // >({ url: url.href });
+    >({ url: url.pathname + url.search });
 
     // const remainingRequests = response?.headers.get('X-RateLimit-Remaining');
     // const maxRequests = response?.headers.get('X-RateLimit-Limit');

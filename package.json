@@ -67,7 +67,6 @@
     "@tailwindcss/vite": "^4.2.2",
     "@types/htmlbars-inline-precompile": "^3.0.4",
     "@types/mixpanel-browser": "^2.38.1",
-    "@types/node": "^25.6.0",
     "@types/qunit": "^2.19.13",
     "@types/rsvp": "^4.0.9",
     "@warp-drive/core": "~5.8.1",

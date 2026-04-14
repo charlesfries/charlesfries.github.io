@@ -4,13 +4,17 @@ import { faCodeFork, faStar } from '@fortawesome/free-solid-svg-icons';
 import type { Repository } from 'charlesfries/services/store';
 import { formatDate, t } from 'ember-intl';
 
+export const CARD_CLASS_NAME =
+  'bg-white dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-700 rounded-xl p-4';
+
 export interface RepositorySignature {
   repository: Repository;
 }
 
 <template>
   <div
-    class="relative bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded-xl p-4 hover:border-blue-500 hover:shadow transition-all duration-300"
+    class="{{CARD_CLASS_NAME}}
+      relative hover:border-blue-500 hover:shadow transition-all duration-300"
   >
     <a
       href={{@repository.url}}

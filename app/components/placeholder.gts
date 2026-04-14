@@ -1,9 +1,9 @@
+import { CARD_CLASS_NAME } from './repository';
+
 const CLASS_NAME = 'bg-gray-200 dark:bg-gray-800';
 
 <template>
-  <div
-    class="bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded-xl p-4"
-  >
+  <div class={{CARD_CLASS_NAME}}>
     <div class="flex animate-pulse space-x-4">
       <div class="size-10 rounded-full {{CLASS_NAME}}"></div>
       <div class="flex-1 space-y-6 py-1">

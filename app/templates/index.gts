@@ -1,9 +1,27 @@
+import FaIcon from '@fortawesome/ember-fontawesome/components/fa-icon';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import Component from '@glimmer/component';
 import Grid from 'charlesfries/components/grid';
 import RateLimit from 'charlesfries/components/rate-limit';
 import Repository from 'charlesfries/components/repository';
 import type IndexController from 'charlesfries/controllers/index';
 import type { Repository as _Repository } from 'charlesfries/services/store';
+import { t } from 'ember-intl';
+
+const MoreButton = <template>
+  <a
+    class="bg-blue-700 hover:bg-blue-900 text-white font-semibold px-3 py-2 rounded-lg"
+    href="https://github.com/charlesfries"
+    role="button"
+  >
+    <FaIcon
+      @icon={{faArrowUpRightFromSquare}}
+      class="mr-1"
+      role="presentation"
+    />
+    {{t "more"}}
+  </a>
+</template>;
 
 interface IndexSignature {
   Args: {
@@ -41,5 +59,8 @@ export default class Index extends Component<IndexSignature> {
         </div>
       {{/each}}
     </Grid>
+    <div class="flex justify-center pt-10">
+      <MoreButton />
+    </div>
   </template>
 }

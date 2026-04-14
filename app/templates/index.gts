@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import Grid from 'charlesfries/components/grid';
-// import RateLimit from 'charlesfries/components/rate-limit';
+import RateLimit from 'charlesfries/components/rate-limit';
 import Repository from 'charlesfries/components/repository';
 import type IndexController from 'charlesfries/controllers/index';
 import type { GitHubRepository } from 'charlesfries/utils/github-types';
@@ -29,11 +29,11 @@ export default class Index extends Component<IndexSignature> {
   }
 
   <template>
-    {{!-- <RateLimit
+    <RateLimit
       @remaining={{@model.remainingRequests}}
       @max={{@model.maxRequests}}
       @resetAt={{@model.resetAt}}
-    /> --}}
+    />
     <Grid>
       {{#each this.repositories as |repository|}}
         <div>

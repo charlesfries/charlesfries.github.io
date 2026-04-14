@@ -51,8 +51,16 @@ export default async (request: Request) => {
 
     const repositories = data.data.user.repositories.nodes;
 
+    const h = response.headers;
+
+    const headers = new Headers();
+    headers.set('Content-Type', 'application/json');
+    headers.set('X-RateLimit-Remaining', h.get('X-RateLimit-Remaining') ?? '');
+    headers.set('X-RateLimit-Limit', h.get('X-RateLimit-Limit') ?? '');
+    headers.set('X-RateLimit-Reset', h.get('X-RateLimit-Reset') ?? '');
+
     return new Response(JSON.stringify(repositories), {
-      headers: { 'Content-Type': 'application/json' },
+      headers,
     });
   } catch (error) {
     console.error(error);

@@ -25,23 +25,23 @@ export default class IndexRoute extends Route {
     url.searchParams.append('sort', sort);
     url.searchParams.append('direction', direction);
 
-    const { content } = await this.store.requestManager.request<
+    const { response, content } = await this.store.requestManager.request<
       GitHubRepository[]
     >({ url: url.pathname + url.search });
 
-    // const remainingRequests = response?.headers.get('X-RateLimit-Remaining');
-    // const maxRequests = response?.headers.get('X-RateLimit-Limit');
-    // const resetAt = response?.headers.get('X-RateLimit-Reset');
+    const remainingRequests = response?.headers.get('X-RateLimit-Remaining');
+    const maxRequests = response?.headers.get('X-RateLimit-Limit');
+    const resetAt = response?.headers.get('X-RateLimit-Reset');
 
     return {
       repositories: content,
-      // remainingRequests:
-      //   typeof remainingRequests === 'string'
-      //     ? Number(remainingRequests)
-      //     : null,
-      // maxRequests: typeof maxRequests === 'string' ? Number(maxRequests) : null,
-      // resetAt:
-      //   typeof resetAt === 'string' ? new Date(Number(resetAt) * 1000) : null,
+      remainingRequests:
+        typeof remainingRequests === 'string'
+          ? Number(remainingRequests)
+          : null,
+      maxRequests: typeof maxRequests === 'string' ? Number(maxRequests) : null,
+      resetAt:
+        typeof resetAt === 'string' ? new Date(Number(resetAt) * 1000) : null,
     };
   }
 }

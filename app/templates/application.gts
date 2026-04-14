@@ -58,7 +58,7 @@ export default class Application extends Component {
         </div>
       </main>
       <footer
-        class="border-t border-gray-300 text-center text-gray-400 mt-6 pt-4"
+        class="border-t border-gray-300 text-center text-gray-400 mt-10 pt-4"
       >
         {{t "copyright"}}
       </footer>

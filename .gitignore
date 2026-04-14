@@ -17,5 +17,4 @@
 # broccoli-debug
 /DEBUG/
 
-.env
 .netlify

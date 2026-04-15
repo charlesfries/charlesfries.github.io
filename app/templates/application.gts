@@ -5,8 +5,8 @@ import Avatar from 'charlesfries/components/avatar';
 import Description from 'charlesfries/components/description';
 import Heading from 'charlesfries/components/heading';
 import Locale from 'charlesfries/components/locale';
-import Skills from 'charlesfries/components/skills';
 import Socials from 'charlesfries/components/socials';
+import Technologies from 'charlesfries/components/technologies';
 import Theme from 'charlesfries/components/theme';
 import Toolbar from 'charlesfries/components/toolbar';
 import { t } from 'ember-intl';
@@ -30,7 +30,7 @@ export default class Application extends Component {
           </div>
           <Description />
           <Socials />
-          <Skills />
+          <Technologies />
         </div>
       </header>
       <main>

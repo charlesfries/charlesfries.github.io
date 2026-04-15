@@ -1,14 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'charlesfries/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Skills from 'charlesfries/components/skills';
+import Technologies from 'charlesfries/components/technologies';
 
-module('Integration | Component | skills', function (hooks) {
+module('Integration | Component | technologies', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(<template><Skills /></template>);
+    await render(<template><Technologies /></template>);
 
-    assert.dom('img').exists({ count: 26 });
+    assert.dom('img').exists({ count: 55 });
   });
 });
